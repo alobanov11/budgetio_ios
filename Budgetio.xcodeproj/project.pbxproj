@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E21823FC293F81410070B4E7 /* BudgetioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21823FB293F81410070B4E7 /* BudgetioApp.swift */; };
-		E21823FE293F81410070B4E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21823FD293F81410070B4E7 /* ContentView.swift */; };
+		E21823FC293F81410070B4E7 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21823FB293F81410070B4E7 /* App.swift */; };
 		E2182400293F81430070B4E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21823FF293F81430070B4E7 /* Assets.xcassets */; };
-		E2182403293F81430070B4E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2182402293F81430070B4E7 /* Preview Assets.xcassets */; };
-		E2182405293F81430070B4E7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182404293F81430070B4E7 /* Persistence.swift */; };
+		E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182404293F81430070B4E7 /* PersistenceController.swift */; };
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
+		E2182410294119610070B4E7 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218240F294119610070B4E7 /* AccountListView.swift */; };
+		E2182413294122030070B4E7 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182412294122030070B4E7 /* AccountEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E21823F8293F81410070B4E7 /* Budgetio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E21823FB293F81410070B4E7 /* BudgetioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetioApp.swift; sourceTree = "<group>"; };
-		E21823FD293F81410070B4E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E21823FB293F81410070B4E7 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		E21823FF293F81430070B4E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2182402293F81430070B4E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E2182404293F81430070B4E7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E2182404293F81430070B4E7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E2182407293F81430070B4E7 /* Budgetio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgetio.xcdatamodel; sourceTree = "<group>"; };
 		E2182409293F81430070B4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E218240F294119610070B4E7 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
+		E218241129411A970070B4E7 /* Budgetio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Budgetio.entitlements; sourceTree = "<group>"; };
+		E2182412294122030070B4E7 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,23 +57,16 @@
 		E21823FA293F81410070B4E7 /* Budgetio */ = {
 			isa = PBXGroup;
 			children = (
-				E21823FB293F81410070B4E7 /* BudgetioApp.swift */,
-				E21823FD293F81410070B4E7 /* ContentView.swift */,
+				E218241129411A970070B4E7 /* Budgetio.entitlements */,
+				E21823FB293F81410070B4E7 /* App.swift */,
 				E21823FF293F81430070B4E7 /* Assets.xcassets */,
-				E2182404293F81430070B4E7 /* Persistence.swift */,
+				E2182404293F81430070B4E7 /* PersistenceController.swift */,
+				E218240F294119610070B4E7 /* AccountListView.swift */,
+				E2182412294122030070B4E7 /* AccountEditView.swift */,
 				E2182409293F81430070B4E7 /* Info.plist */,
 				E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */,
-				E2182401293F81430070B4E7 /* Preview Content */,
 			);
 			path = Budgetio;
-			sourceTree = "<group>";
-		};
-		E2182401293F81430070B4E7 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E2182402293F81430070B4E7 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +127,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2182403293F81430070B4E7 /* Preview Assets.xcassets in Resources */,
 				E2182400293F81430070B4E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,9 +139,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */,
-				E2182405293F81430070B4E7 /* Persistence.swift in Sources */,
-				E21823FE293F81410070B4E7 /* ContentView.swift in Sources */,
-				E21823FC293F81410070B4E7 /* BudgetioApp.swift in Sources */,
+				E2182410294119610070B4E7 /* AccountListView.swift in Sources */,
+				E2182413294122030070B4E7 /* AccountEditView.swift in Sources */,
+				E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */,
+				E21823FC293F81410070B4E7 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,27 +268,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Budgetio/Budgetio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Budgetio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LUY4875ZZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.Budgetio;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,27 +305,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Budgetio/Budgetio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Budgetio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LUY4875ZZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.Budgetio;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

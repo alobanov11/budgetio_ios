@@ -1,0 +1,11 @@
+# The bundle identifier of your app
+app_identifier "ru.alobanov11.budgetio"
+
+# Your Apple email address
+apple_id "alobanov11@icloud.com"
+
+# Developer Portal Team ID
+team_id "LUY4875ZZ2"
+
+# App Store Connect Team ID
+itc_team_id "122152548"
