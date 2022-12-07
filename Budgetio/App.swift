@@ -10,10 +10,10 @@ struct BudgetioApp: App {
 
     var body: some Scene {
         WindowGroup {
-			NavigationView {
-				AccountListView()
-			}
-			.environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                AccountListView()
+            }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
