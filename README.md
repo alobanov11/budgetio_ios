@@ -1,6 +1,6 @@
 # Budgetio
 
-Budgetio - the app which allows you to track your habits progress
+Budgetio - the app which allows you to track proportions of your accounts
 
 <p align="center">
 	<img src="Assets/1.jpg" width="375" />
