@@ -58,6 +58,7 @@ struct AccountEditView: View {
             }
         }
         .onAppear {
+			print(account)
             focused = true
             title = account?.title ?? ""
             value = String(format: "%.2f", account?.value ?? 0)
@@ -83,6 +84,7 @@ private extension AccountEditView {
             .frame(height: 48)
             .overlay {
                 TextField("Value", text: $value)
+					.keyboardType(.numberPad)
                     .font(.system(.body, design: .monospaced))
                     .focused($focused)
                     .offset(x: 12)

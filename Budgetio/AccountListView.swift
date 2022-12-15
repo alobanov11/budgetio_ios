@@ -5,14 +5,20 @@
 import SwiftUI
 
 struct AccountListView: View {
+	private enum SheetRoute: Hashable, Identifiable {
+		case newAccount
+		case editAccount(Account)
+
+		var id: Int { hashValue }
+	}
+
     private var total: Double {
         self.accounts.map { $0.value }.reduce(0, +)
     }
 
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State private var isPresented = false
-    @State private var selectedAccount: Account?
+    @State private var sheetRoute: SheetRoute?
 
     @FetchRequest(sortDescriptors: [
         NSSortDescriptor(keyPath: \Account.title, ascending: true),
@@ -22,7 +28,7 @@ struct AccountListView: View {
     var body: some View {
         ZStack {
             if accounts.isEmpty {
-                Button(action: addAccount) {
+				Button(action: { sheetRoute = .newAccount }) {
                     Label("Add Account", systemImage: "plus.circle")
                         .font(.system(size: 16, weight: .bold, design: .monospaced))
                         .padding()
@@ -41,7 +47,7 @@ struct AccountListView: View {
                         ForEach(accounts) { account in
                             AccountRowView(account: account, total: total)
                                 .onTapGesture {
-                                    selectAccount(account)
+									sheetRoute = .editAccount(account)
                                 }
                         }
                     }
@@ -50,29 +56,25 @@ struct AccountListView: View {
         }
         .toolbar {
             ToolbarItem {
-                Button(action: addAccount) {
+				Button(action: { sheetRoute = .newAccount }) {
                     Label("Add Item", systemImage: "plus.circle")
                 }
             }
         }
-        .sheet(isPresented: $isPresented) {
+		.sheet(item: $sheetRoute) { route in
             NavigationView {
-                AccountEditView(account: selectedAccount)
+				switch route {
+				case .newAccount:
+					AccountEditView(account: nil)
+				case let .editAccount(account):
+					AccountEditView(account: account)
+				}
             }
         }
     }
 }
 
-private extension AccountListView {
-    func addAccount() {
-        self.selectAccount(nil)
-    }
-
-    func selectAccount(_ account: Account?) {
-        self.selectedAccount = account
-        self.isPresented = true
-    }
-}
+private extension AccountListView {}
 
 struct AccountRowView: View {
     @ObservedObject var account: Account
