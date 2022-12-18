@@ -7,13 +7,14 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for i in 0 ..< 4 {
             let newHabbit = Account(context: viewContext)
             newHabbit.title = "Account #\(i)"
             newHabbit.value = Double.random(in: 1000 ..< 100_000)
+			newHabbit.proportion = Int16.random(in: 0..<100)
         }
         do {
             try viewContext.save()

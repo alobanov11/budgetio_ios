@@ -88,6 +88,12 @@ struct AccountRowView: View {
         return 0
     }
 
+	private var diff: Double {
+		guard self.account.proportion != 0 else { return 0 }
+		let originalValue = self.total * (Double(self.account.proportion) / 100)
+		return originalValue - self.account.value
+	}
+
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 6) {
@@ -101,9 +107,20 @@ struct AccountRowView: View {
                 Text("\(account.value.formatted(.currency(code: "USD")))")
                     .font(.system(size: 16, weight: .bold, design: .monospaced))
 
-                Text(String(format: "%.1f", proportion) + "%")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 12, weight: .regular, design: .monospaced))
+				HStack {
+					Text((diff > 0 ? "+" : "-") + String(format: "%.1f", abs(diff)))
+						.foregroundColor(diff > 0 ? .green : .red)
+						.font(.system(size: 12, weight: .regular, design: .monospaced))
+						.hidden(diff == 0)
+
+					Text("•")
+						.foregroundColor(.gray)
+						.hidden(diff == 0)
+
+					Text(String(format: "%.1f", proportion) + "%")
+						.foregroundColor(.gray)
+						.font(.system(size: 12, weight: .regular, design: .monospaced))
+				}
             }
         }
         .padding(.vertical, 12)

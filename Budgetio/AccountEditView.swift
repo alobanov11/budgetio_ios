@@ -12,6 +12,7 @@ struct AccountEditView: View {
 
     @State private var title = ""
     @State private var value = ""
+	@State private var proportion = ""
     @State private var error = false
 
     @FocusState private var focused: Bool
@@ -23,7 +24,11 @@ struct AccountEditView: View {
 
                 Divider()
 
-                valueFieldView
+				HStack(spacing: 24) {
+					valueFieldView
+
+					proportionFieldView
+				}
 
                 if account != nil {
                     Button(action: delete) {
@@ -57,39 +62,74 @@ struct AccountEditView: View {
                 title = String($0.prefix(20))
             }
         }
+		.onChange(of: proportion) {
+			if let value = Int($0), value > 100 {
+				proportion = "100"
+			}
+		}
         .onAppear {
-			print(account)
             focused = true
             title = account?.title ?? ""
             value = String(format: "%.2f", account?.value ?? 0)
+			proportion = String(account?.proportion ?? 0)
         }
     }
 }
 
 private extension AccountEditView {
     var titleFieldView: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .stroke(lineWidth: 2)
-            .frame(height: 48)
-            .overlay {
-                TextField("Title", text: $title)
-                    .font(.system(.body, design: .monospaced))
-                    .offset(x: 12)
-            }
+		VStack(alignment: .leading) {
+			Text("Name")
+				.font(.system(.callout, design: .monospaced))
+				.fontWeight(.bold)
+
+			RoundedRectangle(cornerRadius: 12)
+				.stroke(lineWidth: 2)
+				.frame(height: 48)
+				.overlay {
+					TextField("", text: $title)
+						.font(.system(.body, design: .monospaced))
+						.offset(x: 12)
+				}
+		}
     }
 
     var valueFieldView: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .stroke(lineWidth: 2)
-            .frame(height: 48)
-            .overlay {
-                TextField("Value", text: $value)
-					.keyboardType(.numberPad)
-                    .font(.system(.body, design: .monospaced))
-                    .focused($focused)
-                    .offset(x: 12)
-            }
+		VStack(alignment: .leading) {
+			Text("Value")
+				.font(.system(.callout, design: .monospaced))
+				.fontWeight(.bold)
+
+			RoundedRectangle(cornerRadius: 12)
+				.stroke(lineWidth: 2)
+				.frame(height: 48)
+				.overlay {
+					TextField("", text: $value)
+						.keyboardType(.numberPad)
+						.font(.system(.body, design: .monospaced))
+						.focused($focused)
+						.offset(x: 12)
+				}
+		}
     }
+
+	var proportionFieldView: some View {
+		VStack(alignment: .leading) {
+			Text("Proportion")
+				.font(.system(.callout, design: .monospaced))
+				.fontWeight(.bold)
+
+			RoundedRectangle(cornerRadius: 12)
+				.stroke(lineWidth: 2)
+				.frame(height: 48)
+				.overlay {
+					TextField("", text: $proportion)
+						.keyboardType(.numberPad)
+						.font(.system(.body, design: .monospaced))
+						.offset(x: 12)
+				}
+		}
+	}
 }
 
 private extension AccountEditView {
@@ -97,6 +137,7 @@ private extension AccountEditView {
         let account = self.account ?? Account(context: self.viewContext)
         account.title = self.title
         account.value = Double(self.value) ?? 0
+		account.proportion = Int16(self.proportion) ?? 0
 
         do {
             try self.viewContext.save()
