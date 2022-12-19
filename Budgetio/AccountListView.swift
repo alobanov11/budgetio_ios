@@ -99,6 +99,11 @@ struct AccountRowView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(account.title ?? "###")
                     .font(.system(size: 16, weight: .bold, design: .monospaced))
+
+				Text(String(account.proportion) + "%")
+					.foregroundColor(.gray)
+					.font(.system(size: 12, weight: .regular, design: .monospaced))
+					.hidden(account.proportion == 0)
             }
 
             Spacer()
