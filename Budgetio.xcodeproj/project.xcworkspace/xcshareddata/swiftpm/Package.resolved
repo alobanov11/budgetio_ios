@@ -1,0 +1,13 @@
+{
+  "pins" : [
+    {
+      "identity" : "storeswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alobanov11/StoreSwift.git",
+      "state" : {
+        "revision" : "a0a3e3d4c305d4d17d8f5d57f1870eee02bbc644"
+      }
+    }
+  ],
+  "version" : 2
+}

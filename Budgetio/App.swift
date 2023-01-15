@@ -6,14 +6,13 @@ import SwiftUI
 
 @main
 struct BudgetioApp: App {
-    let persistenceController = PersistenceController.shared
+	var accountRepository: IAccountRepository {
+		AccountRepository(managedObjectContext: PersistenceController.shared.container.viewContext)
+	}
 
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                AccountListView()
-            }
-            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            RootFlow(accountRepository: accountRepository)
         }
     }
 }

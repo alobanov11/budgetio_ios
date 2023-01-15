@@ -2,19 +2,11 @@
 //  Created by Антон Лобанов on 18.11.2022.
 //
 
+import StoreSwift
 import SwiftUI
 
 struct AccountEditView: View {
-    var account: Account?
-
-    @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.dismiss) private var dismiss
-
-    @State private var title = ""
-    @State private var value = ""
-	@State private var proportion = ""
-    @State private var error = false
-
+	@StateObject var store: ViewStore<AccountEditModule>
     @FocusState private var focused: Bool
 
     var body: some View {
@@ -30,8 +22,8 @@ struct AccountEditView: View {
 					proportionFieldView
 				}
 
-                if account != nil {
-                    Button(action: delete) {
+				if store.state.isNewAccount == false {
+					Button(action: { store.dispatch(.didTapOnDelete) }) {
                         Label("Delete Account", systemImage: "trash.fill")
                             .font(.system(.headline, design: .monospaced))
                             .foregroundColor(.red)
@@ -42,36 +34,23 @@ struct AccountEditView: View {
             .padding()
             .padding(.vertical)
         }
-        .navigationTitle(account == nil ? "New account" : "Edit account")
+        .navigationTitle(store.state.isNewAccount ? "New account" : "Edit account")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: dismiss.callAsFunction) {
+				Button(action: { store.dispatch(.didTapOnCancel) }) {
                     Text("Cancel")
                 }
             }
             ToolbarItem {
-                Button(action: done) {
-                    Text(account == nil ? "Add" : "Done")
+				Button(action: { store.dispatch(.didTapOnDone) }) {
+					Text(store.state.isNewAccount ? "Add" : "Done")
                 }
-                .disabled(title.isEmpty)
+				.disabled(store.state.title.isEmpty)
             }
         }
-        .onChange(of: title) {
-            if $0.count > 20 {
-                title = String($0.prefix(20))
-            }
-        }
-		.onChange(of: proportion) {
-			if let value = Int($0), value > 100 {
-				proportion = "100"
-			}
-		}
         .onAppear {
             focused = true
-            title = account?.title ?? ""
-            value = String(format: "%.2f", account?.value ?? 0)
-			proportion = String(account?.proportion ?? 0)
         }
     }
 }
@@ -87,7 +66,7 @@ private extension AccountEditView {
 				.stroke(lineWidth: 2)
 				.frame(height: 48)
 				.overlay {
-					TextField("", text: $title)
+					TextField("", text: store.bind(\.title, by: .didEditTitle))
 						.font(.system(.body, design: .monospaced))
 						.offset(x: 12)
 				}
@@ -104,7 +83,7 @@ private extension AccountEditView {
 				.stroke(lineWidth: 2)
 				.frame(height: 48)
 				.overlay {
-					TextField("", text: $value)
+					TextField("", text: store.bind(\.value, by: .didEditValue))
 						.keyboardType(.numberPad)
 						.font(.system(.body, design: .monospaced))
 						.focused($focused)
@@ -123,7 +102,7 @@ private extension AccountEditView {
 				.stroke(lineWidth: 2)
 				.frame(height: 48)
 				.overlay {
-					TextField("", text: $proportion)
+					TextField("", text: store.bind(\.proportion, by: .didEditProportion))
 						.keyboardType(.numberPad)
 						.font(.system(.body, design: .monospaced))
 						.offset(x: 12)
@@ -132,42 +111,19 @@ private extension AccountEditView {
 	}
 }
 
-private extension AccountEditView {
-    func done() {
-        let account = self.account ?? Account(context: self.viewContext)
-        account.title = self.title
-        account.value = Double(self.value) ?? 0
-		account.proportion = Int16(self.proportion) ?? 0
-
-        do {
-            try self.viewContext.save()
-            self.dismiss()
-        }
-        catch {
-            print(error)
-            self.error = true
-        }
-    }
-
-    func delete() {
-        guard let account = self.account else { return }
-        self.viewContext.delete(account)
-
-        do {
-            try self.viewContext.save()
-            self.dismiss()
-        }
-        catch {
-            print(error)
-            self.error = true
-        }
-    }
-}
-
 struct AccountEditPreview: PreviewProvider {
+	static var store: ViewStore<AccountEditModule> {
+		.init(initialState: .init(
+			title: "",
+			proportion: "",
+			value: "",
+			isNewAccount: true
+		))
+	}
+
     static var previews: some View {
         NavigationView {
-            AccountEditView()
+			AccountEditView(store: store)
         }
     }
 }
