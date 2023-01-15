@@ -3,8 +3,8 @@
 Budgetio - the app which allows you to track proportions of your accounts
 
 <p align="center">
-	<img src="Assets/1.jpg" width="375" />
-	<img src="Assets/2.jpg" width="375" />
+	<img src="Assets/6.5 en first.jpg" width="375" />
+	<img src="Assets/6.5 en second.jpg" width="375" />
 </p>
 
 ## Features
