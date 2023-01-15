@@ -8,8 +8,8 @@ import Foundation
 typealias AccountID = NSManagedObjectID
 
 struct AccountEntity: Identifiable, Hashable {
-	var id: AccountID?
-	var title: String = ""
-	var value: Double = 0
-	var proportion: Int = 0
+    var id: AccountID?
+    var title: String = ""
+    var value: Double = 0
+    var proportion: Int = 0
 }

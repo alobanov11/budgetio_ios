@@ -14,7 +14,7 @@ struct PersistenceController {
             let newHabbit = Account(context: viewContext)
             newHabbit.title = "Account #\(i)"
             newHabbit.value = Double.random(in: 1000 ..< 100_000)
-			newHabbit.proportion = Int16.random(in: 0..<100)
+            newHabbit.proportion = Int16.random(in: 0 ..< 100)
         }
         do {
             try viewContext.save()

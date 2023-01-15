@@ -6,9 +6,9 @@ import SwiftUI
 
 @main
 struct BudgetioApp: App {
-	var accountRepository: IAccountRepository {
-		AccountRepository(managedObjectContext: PersistenceController.shared.container.viewContext)
-	}
+    var accountRepository: IAccountRepository {
+        AccountRepository(managedObjectContext: PersistenceController.shared.container.viewContext)
+    }
 
     var body: some Scene {
         WindowGroup {
