@@ -5,11 +5,11 @@
 import CoreData
 import Foundation
 
-struct UnknownError: Error {
+struct MessageError: Error {
     let message: String
 }
 
-extension UnknownError {
+extension MessageError {
     init(error: Error) {
         switch error._code {
         case NSManagedObjectConstraintMergeError:
@@ -20,7 +20,7 @@ extension UnknownError {
     }
 }
 
-extension UnknownError: LocalizedError {
+extension MessageError: LocalizedError {
     var errorDescription: String? {
         self.message
     }

@@ -30,8 +30,8 @@ final class AccountRepository: IAccountRepository {
         let fetchRequest = Account.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Account.title), ascending: true)]
         return try await self.managedObjectContext.perform { [weak self] in
-            try self?.managedObjectContext.fetch(fetchRequest).map { AccountEntity(with: $0) } ?? []
-        }
+			try self?.managedObjectContext.fetch(fetchRequest) ?? []
+        }.map { AccountEntity(with: $0) }
     }
 
     func save(_ entity: AccountEntity) throws -> AccountEntity {
@@ -55,7 +55,7 @@ private extension AccountRepository {
         guard let id = entity.id,
               let account = self.managedObjectContext.object(with: id) as? Account
         else {
-            throw UnknownError(message: "ID is wrong")
+            throw MessageError(message: "ID is wrong")
         }
 
         account.title = entity.title

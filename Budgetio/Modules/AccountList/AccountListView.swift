@@ -11,7 +11,7 @@ struct AccountListView: View {
     var body: some View {
         ZStack {
             if store.state.data.isEmpty {
-                Button(action: { store.dispatch(.didTapOnCreateAccount) }) {
+				Button(action: store.action(.didTapOnCreateAccount)) {
                     Label("Add Account", systemImage: "plus.circle")
                         .font(.system(size: 16, weight: .bold, design: .monospaced))
                         .padding()
@@ -40,7 +40,7 @@ struct AccountListView: View {
         }
         .toolbar {
             ToolbarItem {
-                Button(action: { store.dispatch(.didTapOnCreateAccount) }) {
+				Button(action: store.action(.didTapOnCreateAccount)) {
                     Label("Add Item", systemImage: "plus.circle")
                 }
             }
@@ -49,48 +49,6 @@ struct AccountListView: View {
 }
 
 private extension AccountListView {}
-
-struct AccountRowView: View {
-    let account: AccountListModule.State.Account
-
-    var body: some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(account.title)
-                    .font(.system(size: 16, weight: .bold, design: .monospaced))
-
-                Text(account.originalProportion ?? "")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 12, weight: .regular, design: .monospaced))
-                    .hidden(account.originalProportion == nil)
-            }
-
-            Spacer()
-
-            VStack(alignment: .trailing, spacing: 6) {
-                Text(account.value)
-                    .font(.system(size: 16, weight: .bold, design: .monospaced))
-
-                HStack {
-                    Text(account.diff ?? "")
-                        .foregroundColor(account.isPositive ? .green : .red)
-                        .font(.system(size: 12, weight: .regular, design: .monospaced))
-                        .hidden(account.diff == nil)
-
-                    Text("•")
-                        .foregroundColor(.gray)
-                        .hidden(account.diff == nil)
-
-                    Text(account.proportion)
-                        .foregroundColor(.gray)
-                        .font(.system(size: 12, weight: .regular, design: .monospaced))
-                }
-            }
-        }
-        .padding(.vertical, 12)
-        .padding(.horizontal)
-    }
-}
 
 struct AccountListPreview: PreviewProvider {
     static var store: ViewStore<AccountListModule> {

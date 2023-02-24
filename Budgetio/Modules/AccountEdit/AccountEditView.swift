@@ -23,7 +23,7 @@ struct AccountEditView: View {
                 }
 
                 if store.state.isNewAccount == false {
-                    Button(action: { store.dispatch(.didTapOnDelete) }) {
+					Button(action: store.action(.didTapOnDelete)) {
                         Label("Delete Account", systemImage: "trash.fill")
                             .font(.system(.headline, design: .monospaced))
                             .foregroundColor(.red)
@@ -38,12 +38,12 @@ struct AccountEditView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { store.dispatch(.didTapOnCancel) }) {
+				Button(action: store.action(.didTapOnCancel)) {
                     Text("Cancel")
                 }
             }
             ToolbarItem {
-                Button(action: { store.dispatch(.didTapOnDone) }) {
+				Button(action: store.action(.didTapOnDone)) {
                     Text(store.state.isNewAccount ? "Add" : "Done")
                 }
                 .disabled(store.state.title.isEmpty)
@@ -66,7 +66,7 @@ private extension AccountEditView {
                 .stroke(lineWidth: 2)
                 .frame(height: 48)
                 .overlay {
-                    TextField("", text: store.bind(\.title, by: .didEditTitle))
+                    TextField("", text: store.binding(\.title, by: .didEditTitle))
                         .font(.system(.body, design: .monospaced))
                         .offset(x: 12)
                 }
@@ -83,7 +83,7 @@ private extension AccountEditView {
                 .stroke(lineWidth: 2)
                 .frame(height: 48)
                 .overlay {
-                    TextField("", text: store.bind(\.value, by: .didEditValue))
+                    TextField("", text: store.binding(\.value, by: .didEditValue))
                         .keyboardType(.numberPad)
                         .font(.system(.body, design: .monospaced))
                         .focused($focused)
@@ -102,7 +102,7 @@ private extension AccountEditView {
                 .stroke(lineWidth: 2)
                 .frame(height: 48)
                 .overlay {
-                    TextField("", text: store.bind(\.proportion, by: .didEditProportion))
+                    TextField("", text: store.binding(\.proportion, by: .didEditProportion))
                         .keyboardType(.numberPad)
                         .font(.system(.body, design: .monospaced))
                         .offset(x: 12)

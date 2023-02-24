@@ -13,6 +13,7 @@
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
 		E2182410294119610070B4E7 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218240F294119610070B4E7 /* AccountListView.swift */; };
 		E2182413294122030070B4E7 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182412294122030070B4E7 /* AccountEditView.swift */; };
+		E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2399D6929A9182D0043CB51 /* AccountRowView.swift */; };
 		E2BAB97A297350550084C929 /* StoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2BAB979297350550084C929 /* StoreSwift */; };
 		E2BAB981297350F40084C929 /* AccountListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB980297350F40084C929 /* AccountListModule.swift */; };
 		E2BAB9842973F5FA0084C929 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB9832973F5FA0084C929 /* AccountRepository.swift */; };
@@ -22,8 +23,7 @@
 		E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AccountEntity.swift */; };
 		E2BAB99229744CBB0084C929 /* RootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99129744CBB0084C929 /* RootFlow.swift */; };
 		E2BAB99429744CFC0084C929 /* AccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99329744CFC0084C929 /* AccountFlow.swift */; };
-		E2EAA70A294F693D0081AEBB /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA708294F69370081AEBB /* DispatchQueue.swift */; };
-		E2EAA70B294F693D0081AEBB /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* UnknownError.swift */; };
+		E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* MessageError.swift */; };
 		E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA707294F69370081AEBB /* View+ScenePhase.swift */; };
 		E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA709294F69370081AEBB /* View+Hidden.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +37,7 @@
 		E2182409293F81430070B4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E218240F294119610070B4E7 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
 		E2182412294122030070B4E7 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		E2399D6929A9182D0043CB51 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
 		E2BAB980297350F40084C929 /* AccountListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListModule.swift; sourceTree = "<group>"; };
 		E2BAB9832973F5FA0084C929 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		E2BAB985297431790084C929 /* AccountListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListStore.swift; sourceTree = "<group>"; };
@@ -45,9 +46,8 @@
 		E2BAB98F29744B9C0084C929 /* AccountEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
 		E2BAB99129744CBB0084C929 /* RootFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlow.swift; sourceTree = "<group>"; };
 		E2BAB99329744CFC0084C929 /* AccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlow.swift; sourceTree = "<group>"; };
-		E2EAA706294F69370081AEBB /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
+		E2EAA706294F69370081AEBB /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		E2EAA707294F69370081AEBB /* View+ScenePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScenePhase.swift"; sourceTree = "<group>"; };
-		E2EAA708294F69370081AEBB /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		E2EAA709294F69370081AEBB /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +82,7 @@
 		E21823FA293F81410070B4E7 /* Budgetio */ = {
 			isa = PBXGroup;
 			children = (
+				E21823FB293F81410070B4E7 /* App.swift */,
 				E2BAB98E29744B8D0084C929 /* Entities */,
 				E2EAA705294F692D0081AEBB /* Extensions */,
 				E2BAB98D29744B770084C929 /* Flows */,
@@ -89,7 +90,6 @@
 				E2BAB97F297350C60084C929 /* Persistence */,
 				E2BAB9822973F4DF0084C929 /* Repositories */,
 				E2BAB97B2973506F0084C929 /* Resources */,
-				E21823FB293F81410070B4E7 /* App.swift */,
 			);
 			path = Budgetio;
 			sourceTree = "<group>";
@@ -119,6 +119,7 @@
 				E2BAB980297350F40084C929 /* AccountListModule.swift */,
 				E2BAB985297431790084C929 /* AccountListStore.swift */,
 				E218240F294119610070B4E7 /* AccountListView.swift */,
+				E2399D6929A9182D0043CB51 /* AccountRowView.swift */,
 			);
 			path = AccountList;
 			sourceTree = "<group>";
@@ -169,8 +170,7 @@
 		E2EAA705294F692D0081AEBB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E2EAA708294F69370081AEBB /* DispatchQueue.swift */,
-				E2EAA706294F69370081AEBB /* UnknownError.swift */,
+				E2EAA706294F69370081AEBB /* MessageError.swift */,
 				E2EAA709294F69370081AEBB /* View+Hidden.swift */,
 				E2EAA707294F69370081AEBB /* View+ScenePhase.swift */,
 			);
@@ -261,12 +261,12 @@
 				E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */,
 				E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */,
 				E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */,
+				E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */,
 				E2BAB981297350F40084C929 /* AccountListModule.swift in Sources */,
-				E2EAA70B294F693D0081AEBB /* UnknownError.swift in Sources */,
+				E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */,
 				E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */,
 				E21823FC293F81410070B4E7 /* App.swift in Sources */,
 				E2BAB98C29743A720084C929 /* AccountEditStore.swift in Sources */,
-				E2EAA70A294F693D0081AEBB /* DispatchQueue.swift in Sources */,
 				E2BAB99429744CFC0084C929 /* AccountFlow.swift in Sources */,
 				E2BAB9842973F5FA0084C929 /* AccountRepository.swift in Sources */,
 			);
@@ -492,7 +492,7 @@
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
 				kind = revision;
-				revision = a0a3e3d4c305d4d17d8f5d57f1870eee02bbc644;
+				revision = e31b5083be44faff1374f092aef36b9a4f12c9d2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
