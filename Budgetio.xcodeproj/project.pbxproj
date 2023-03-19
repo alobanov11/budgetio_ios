@@ -228,7 +228,7 @@
 			);
 			mainGroup = E21823EF293F81410070B4E7;
 			packageReferences = (
-				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */,
+				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */,
 			);
 			productRefGroup = E21823F9293F81410070B4E7 /* Products */;
 			projectDirPath = "";
@@ -498,7 +498,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */ = {
+		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
@@ -511,7 +511,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E2BAB979297350550084C929 /* StoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */;
+			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */;
 			productName = StoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
