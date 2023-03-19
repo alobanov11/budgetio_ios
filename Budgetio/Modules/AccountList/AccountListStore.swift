@@ -95,7 +95,7 @@ private extension AccountListStore {
         return State.Account(
             id: account.id,
             title: account.title,
-            proportion: String(format: "%.1f", proportion) + "%",
+            proportion: String(format: "%.0f", proportion) + "%",
             originalProportion: account.proportion == 0 ? nil : String(account.proportion) + "%",
             value: account.value.formatted(.currency(code: "USD")),
             diff: diff == 0 ? nil : (diff > 0 ? "+" : "-") + String(format: "%.1f", abs(diff)),

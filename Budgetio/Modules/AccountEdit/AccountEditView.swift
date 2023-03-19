@@ -23,7 +23,7 @@ struct AccountEditView: View {
                 }
 
                 if store.state.isNewAccount == false {
-					Button(action: store.action(.didTapOnDelete)) {
+                    Button(action: store.action(.didTapOnDelete)) {
                         Label("Delete Account", systemImage: "trash.fill")
                             .font(.system(.headline, design: .monospaced))
                             .foregroundColor(.red)
@@ -38,12 +38,12 @@ struct AccountEditView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-				Button(action: store.action(.didTapOnCancel)) {
+                Button(action: store.action(.didTapOnCancel)) {
                     Text("Cancel")
                 }
             }
             ToolbarItem {
-				Button(action: store.action(.didTapOnDone)) {
+                Button(action: store.action(.didTapOnDone)) {
                     Text(store.state.isNewAccount ? "Add" : "Done")
                 }
                 .disabled(store.state.title.isEmpty)

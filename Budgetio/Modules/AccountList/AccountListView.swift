@@ -11,7 +11,7 @@ struct AccountListView: View {
     var body: some View {
         ZStack {
             if store.state.data.isEmpty {
-				Button(action: store.action(.didTapOnCreateAccount)) {
+                Button(action: store.action(.didTapOnCreateAccount)) {
                     Label("Add Account", systemImage: "plus.circle")
                         .font(.system(size: 16, weight: .bold, design: .monospaced))
                         .padding()
@@ -33,6 +33,10 @@ struct AccountListView: View {
                                 .onTapGesture {
                                     store.dispatch(.didTapOnAccount(account))
                                 }
+
+                            Divider()
+                                .opacity(0.3)
+                                .padding(.horizontal)
                         }
                     }
                 }
@@ -40,7 +44,7 @@ struct AccountListView: View {
         }
         .toolbar {
             ToolbarItem {
-				Button(action: store.action(.didTapOnCreateAccount)) {
+                Button(action: store.action(.didTapOnCreateAccount)) {
                     Label("Add Item", systemImage: "plus.circle")
                 }
             }

@@ -5,63 +5,57 @@
 import SwiftUI
 
 struct AccountRowView: View {
-	let account: AccountListModule.State.Account
+    let account: AccountListModule.State.Account
 
-	var body: some View {
-		HStack(alignment: .center) {
-			VStack(alignment: .leading, spacing: 6) {
-				Text(account.title)
-					.font(.system(size: 16, weight: .bold, design: .monospaced))
+    var body: some View {
+        VStack(spacing: 6) {
+            HStack {
+                Text(account.value)
+                    .font(.system(size: 16, weight: .bold, design: .monospaced))
 
-				Text(account.originalProportion ?? "")
-					.foregroundColor(.gray)
-					.font(.system(size: 12, weight: .regular, design: .monospaced))
-					.hidden(account.originalProportion == nil)
-			}
+                Spacer()
 
-			Spacer()
+                Text(account.diff ?? "0")
+                    .foregroundColor(account.isPositive ? .green : .red)
+                    .font(.system(size: 16, weight: .bold, design: .monospaced))
+            }
 
-			VStack(alignment: .trailing, spacing: 6) {
-				Text(account.value)
-					.font(.system(size: 16, weight: .bold, design: .monospaced))
+            HStack {
+                Text(account.title)
+                    .font(.system(size: 12, weight: .regular, design: .monospaced))
 
-				HStack {
-					Text(account.diff ?? "")
-						.foregroundColor(account.isPositive ? .green : .red)
-						.font(.system(size: 12, weight: .regular, design: .monospaced))
-						.hidden(account.diff == nil)
+                Spacer()
 
-					Text("•")
-						.foregroundColor(.gray)
-						.hidden(account.diff == nil)
+                HStack {
+                    Text(account.proportion)
+                        .font(.system(size: 12, weight: .regular, design: .monospaced))
 
-					Text(account.proportion)
-						.foregroundColor(.gray)
-						.font(.system(size: 12, weight: .regular, design: .monospaced))
-				}
-			}
-		}
-		.padding(.vertical, 12)
-		.padding(.horizontal)
-		.background(
-			RoundedRectangle(cornerRadius: 16)
-				.fill(Color.white.opacity(0.5))
-		)
-	}
+                    Text("/")
+                        .font(.system(size: 12, weight: .regular, design: .monospaced))
+                        .hidden(account.diff == nil)
+
+                    Text(account.originalProportion ?? "")
+                        .font(.system(size: 12, weight: .regular, design: .monospaced))
+                        .hidden(account.originalProportion == nil)
+                }
+            }
+        }
+        .padding()
+    }
 }
 
 struct AccountRowPreview: PreviewProvider {
-	static var previews: some View {
-		ZStack {
-			AccountRowView(account: .init(
-				id: .init(),
-				title: "Account #1",
-				proportion: "12%",
-				originalProportion: "5%",
-				value: "2000 RUB",
-				diff: "150 RUB",
-				isPositive: false
-			))
-		}
-	}
+    static var previews: some View {
+        ZStack {
+            AccountRowView(account: .init(
+                id: .init(),
+                title: "Account #1",
+                proportion: "12%",
+                originalProportion: "5%",
+                value: "2000 RUB",
+                diff: "150 RUB",
+                isPositive: false
+            ))
+        }
+    }
 }

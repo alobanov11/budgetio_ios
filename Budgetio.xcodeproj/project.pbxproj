@@ -70,6 +70,7 @@
 				E21823F9293F81410070B4E7 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		E21823F9293F81410070B4E7 /* Products */ = {
 			isa = PBXGroup;
@@ -225,7 +226,7 @@
 			);
 			mainGroup = E21823EF293F81410070B4E7;
 			packageReferences = (
-				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */,
+				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */,
 			);
 			productRefGroup = E21823F9293F81410070B4E7 /* Products */;
 			projectDirPath = "";
@@ -396,10 +397,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Budgetio/Budgetio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
@@ -417,6 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore ru.alobanov11.budgetio";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -433,10 +437,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Budgetio/Budgetio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
@@ -454,6 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore ru.alobanov11.budgetio";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -487,7 +494,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */ = {
+		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
@@ -500,7 +507,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E2BAB979297350550084C929 /* StoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */;
+			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */;
 			productName = StoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

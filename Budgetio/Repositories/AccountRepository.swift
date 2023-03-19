@@ -30,7 +30,7 @@ final class AccountRepository: IAccountRepository {
         let fetchRequest = Account.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Account.title), ascending: true)]
         return try await self.managedObjectContext.perform { [weak self] in
-			try self?.managedObjectContext.fetch(fetchRequest) ?? []
+            try self?.managedObjectContext.fetch(fetchRequest) ?? []
         }.map { AccountEntity(with: $0) }
     }
 
