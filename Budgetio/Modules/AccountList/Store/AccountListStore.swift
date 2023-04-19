@@ -59,18 +59,16 @@ final class AccountListStore: Store<AccountListModule> {
             return .none
 
         case let .feedback(.didLoadAccounts(result)):
+            var effects: [Effect] = []
             switch result {
             case let .success(accounts):
                 self.accounts = accounts
-                return .combine(
-                    .mutate(.setAccounts(accounts)),
-                    .mutate(.setLoading(false))
-                )
+                effects.append(.mutate(.setAccounts(accounts)))
 
             case let .failure(error):
                 print(error)
-                return .none
             }
+            return .combine(effects + [.mutate(.setLoading(false))])
         }
     }
 
