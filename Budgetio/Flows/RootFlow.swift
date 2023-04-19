@@ -24,9 +24,9 @@ struct RootFlow: View {
         .sheet(item: $sheetRoute) { route in
             switch route {
             case .newAccount:
-                AccountFlow(contentType: .new, accountRepository: accountRepository)
+                AccountEditFlow(contentType: .new, accountRepository: accountRepository)
             case let .editAccount(account):
-                AccountFlow(contentType: .edit(account), accountRepository: accountRepository)
+                AccountEditFlow(contentType: .edit(account), accountRepository: accountRepository)
             }
         }
     }

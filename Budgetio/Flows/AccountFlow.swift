@@ -5,7 +5,7 @@
 import StoreSwift
 import SwiftUI
 
-struct AccountFlow: View {
+struct AccountEditFlow: View {
     let contentType: AccountEditModule.ContentType
     let accountRepository: IAccountRepository
 
@@ -23,7 +23,7 @@ struct AccountFlow: View {
     }
 }
 
-private extension AccountFlow {
+private extension AccountEditFlow {
     @MainActor
     func accountEditView(with account: AccountEntity?) -> AccountEditView {
         let store = AccountEditStore(

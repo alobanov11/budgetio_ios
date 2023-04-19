@@ -51,6 +51,7 @@ struct AccountEditView: View {
         }
         .onAppear {
             focused = true
+            store.send(.viewAppear)
         }
     }
 }

@@ -12,17 +12,17 @@
 		E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182404293F81430070B4E7 /* PersistenceController.swift */; };
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
 		E2182410294119610070B4E7 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218240F294119610070B4E7 /* AccountListView.swift */; };
-		E2182413294122030070B4E7 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182412294122030070B4E7 /* AccountEditView.swift */; };
 		E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2399D6929A9182D0043CB51 /* AccountRowView.swift */; };
+		E2B8536729F0635200B82801 /* AccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99329744CFC0084C929 /* AccountFlow.swift */; };
+		E2B8536C29F0638900B82801 /* AccountEditModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98929743A6C0084C929 /* AccountEditModule.swift */; };
+		E2B8536D29F0638900B82801 /* AccountEditStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98B29743A720084C929 /* AccountEditStore.swift */; };
+		E2B8536E29F0638900B82801 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182412294122030070B4E7 /* AccountEditView.swift */; };
 		E2BAB97A297350550084C929 /* StoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2BAB979297350550084C929 /* StoreSwift */; };
 		E2BAB981297350F40084C929 /* AccountListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB980297350F40084C929 /* AccountListModule.swift */; };
 		E2BAB9842973F5FA0084C929 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB9832973F5FA0084C929 /* AccountRepository.swift */; };
 		E2BAB986297431790084C929 /* AccountListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB985297431790084C929 /* AccountListStore.swift */; };
-		E2BAB98A29743A6C0084C929 /* AccountEditModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98929743A6C0084C929 /* AccountEditModule.swift */; };
-		E2BAB98C29743A720084C929 /* AccountEditStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98B29743A720084C929 /* AccountEditStore.swift */; };
 		E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AccountEntity.swift */; };
 		E2BAB99229744CBB0084C929 /* RootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99129744CBB0084C929 /* RootFlow.swift */; };
-		E2BAB99429744CFC0084C929 /* AccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99329744CFC0084C929 /* AccountFlow.swift */; };
 		E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* MessageError.swift */; };
 		E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA707294F69370081AEBB /* View+ScenePhase.swift */; };
 		E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA709294F69370081AEBB /* View+Hidden.swift */; };
@@ -97,6 +97,31 @@
 			path = Budgetio;
 			sourceTree = "<group>";
 		};
+		E2B8536829F0635C00B82801 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E2BAB980297350F40084C929 /* AccountListModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E2B8536929F0635E00B82801 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				E2BAB985297431790084C929 /* AccountListStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		E2B8536B29F0637100B82801 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2399D6929A9182D0043CB51 /* AccountRowView.swift */,
+				E218240F294119610070B4E7 /* AccountListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E2BAB97B2973506F0084C929 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,10 +144,9 @@
 		E2BAB97D297350B10084C929 /* AccountList */ = {
 			isa = PBXGroup;
 			children = (
-				E2BAB980297350F40084C929 /* AccountListModule.swift */,
-				E2BAB985297431790084C929 /* AccountListStore.swift */,
-				E218240F294119610070B4E7 /* AccountListView.swift */,
-				E2399D6929A9182D0043CB51 /* AccountRowView.swift */,
+				E2B8536829F0635C00B82801 /* Module */,
+				E2B8536929F0635E00B82801 /* Store */,
+				E2B8536B29F0637100B82801 /* View */,
 			);
 			path = AccountList;
 			sourceTree = "<group>";
@@ -256,12 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */,
+				E2B8536D29F0638900B82801 /* AccountEditStore.swift in Sources */,
 				E2182410294119610070B4E7 /* AccountListView.swift in Sources */,
-				E2BAB98A29743A6C0084C929 /* AccountEditModule.swift in Sources */,
-				E2182413294122030070B4E7 /* AccountEditView.swift in Sources */,
 				E2BAB986297431790084C929 /* AccountListStore.swift in Sources */,
 				E2BAB99229744CBB0084C929 /* RootFlow.swift in Sources */,
+				E2B8536E29F0638900B82801 /* AccountEditView.swift in Sources */,
 				E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */,
+				E2B8536C29F0638900B82801 /* AccountEditModule.swift in Sources */,
+				E2B8536729F0635200B82801 /* AccountFlow.swift in Sources */,
 				E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */,
 				E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */,
 				E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */,
@@ -269,8 +295,6 @@
 				E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */,
 				E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */,
 				E21823FC293F81410070B4E7 /* App.swift in Sources */,
-				E2BAB98C29743A720084C929 /* AccountEditStore.swift in Sources */,
-				E2BAB99429744CFC0084C929 /* AccountFlow.swift in Sources */,
 				E2BAB9842973F5FA0084C929 /* AccountRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Budgetio/Budgetio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -423,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore ru.alobanov11.budgetio";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development ru.alobanov11.budgetio";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -503,7 +527,7 @@
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
 				kind = revision;
-				revision = e31b5083be44faff1374f092aef36b9a4f12c9d2;
+				revision = 9151c004dbd52f5d87e6c0da5683e1468f6c13f2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -6,22 +6,34 @@ import Foundation
 import StoreSwift
 
 enum AccountListModule: Module {
+
     struct Router {
+
         let onCreateAccount: () -> Void
         let onEditAccount: (AccountEntity) -> Void
     }
 
-    enum Action: Equatable {
+    enum Action {
+
+        case viewAppear
         case didTapOnAccount(State.Account)
         case didTapOnCreateAccount
     }
 
-    enum Effect: Equatable {
+    enum Mutation {
+
         case setLoading(Bool)
         case setAccounts([AccountEntity])
     }
 
+    enum Feedback {
+
+        case accountsWasUpdated
+        case didLoadAccounts(Result<[AccountEntity], Error>)
+    }
+
     struct State: Equatable {
+
         var isDataLoaded = false
         var isLoading = false
         var data: [Account] = []
@@ -30,7 +42,9 @@ enum AccountListModule: Module {
 }
 
 extension AccountListModule.State {
+
     struct Account: Identifiable, Hashable {
+
         let id: AccountID?
         let title: String
         let proportion: String

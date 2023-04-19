@@ -31,7 +31,7 @@ struct AccountListView: View {
                             AccountRowView(account: account)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    store.dispatch(.didTapOnAccount(account))
+                                    store.send(.didTapOnAccount(account))
                                 }
 
                             Divider()
@@ -49,6 +49,7 @@ struct AccountListView: View {
                 }
             }
         }
+        .onAppear(perform: store.action(.viewAppear))
     }
 }
 
