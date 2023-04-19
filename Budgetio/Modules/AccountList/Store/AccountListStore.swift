@@ -7,7 +7,6 @@ import Foundation
 import StoreSwift
 
 final class AccountListStore: Store<AccountListModule> {
-
     private var accounts: [AccountEntity] = []
     private var cancelables: [AnyCancellable] = []
 
@@ -88,7 +87,6 @@ final class AccountListStore: Store<AccountListModule> {
 }
 
 private extension AccountListStore {
-
     static func mapAccount(with account: AccountEntity, total: Double) -> State.Account {
         let proportion: Double = {
             if total > 0, account.value > 0 {

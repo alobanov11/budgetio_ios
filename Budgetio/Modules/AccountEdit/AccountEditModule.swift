@@ -6,19 +6,16 @@ import Foundation
 import StoreSwift
 
 enum AccountEditModule: Module {
-
     enum ContentType {
         case new
         case edit(AccountEntity)
     }
 
     struct Router {
-
         let onDismiss: () -> Void
     }
 
     enum Action: Equatable {
-
         case viewAppear
         case didEditTitle
         case didEditValue
@@ -29,7 +26,6 @@ enum AccountEditModule: Module {
     }
 
     enum Mutation: Equatable {
-
         case setAccount(AccountEntity)
         case setTitle(String)
         case setProportion(String)
@@ -44,7 +40,6 @@ enum AccountEditModule: Module {
 }
 
 extension AccountEditModule.ContentType {
-
     var account: AccountEntity? {
         switch self {
         case .new:

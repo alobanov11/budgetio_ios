@@ -252,7 +252,7 @@
 			);
 			mainGroup = E21823EF293F81410070B4E7;
 			packageReferences = (
-				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */,
+				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */,
 			);
 			productRefGroup = E21823F9293F81410070B4E7 /* Products */;
 			projectDirPath = "";
@@ -425,7 +425,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
@@ -466,7 +466,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
@@ -522,7 +522,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */ = {
+		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
@@ -535,7 +535,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E2BAB979297350550084C929 /* StoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */;
+			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */;
 			productName = StoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
