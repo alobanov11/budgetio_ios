@@ -12,4 +12,5 @@ struct AccountEntity: Identifiable, Hashable {
     var title: String = ""
     var value: Double = 0
     var proportion: Int = 0
+    var records: [RecordEntity] = []
 }

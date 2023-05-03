@@ -62,6 +62,11 @@ private extension AccountRepository {
         account.value = entity.value
         account.proportion = Int16(entity.proportion)
 
+        let record = Record(context: self.managedObjectContext)
+        record.date = .now
+        record.value = account.value
+        record.account = account
+
         try self.managedObjectContext.save()
         self.didUpdate.send(())
     }
@@ -81,5 +86,7 @@ private extension AccountEntity {
         self.title = account.title ?? ""
         self.value = account.value
         self.proportion = Int(account.proportion)
+        self.records = account.records?.compactMap { $0 as? Record }
+            .map { .init(id: $0.objectID, date: $0.date ?? .now, value: $0.value) } ?? []
     }
 }

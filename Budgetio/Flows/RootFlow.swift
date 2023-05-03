@@ -13,7 +13,7 @@ struct RootFlow: View {
         var id: Int { hashValue }
     }
 
-    let accountRepository: IAccountRepository
+    let dependencies: Dependencies
 
     @State private var sheetRoute: SheetRoute?
 
@@ -24,9 +24,9 @@ struct RootFlow: View {
         .sheet(item: $sheetRoute) { route in
             switch route {
             case .newAccount:
-                AccountEditFlow(contentType: .new, accountRepository: accountRepository)
+                AccountEditFlow(contentType: .new, dependencies: dependencies)
             case let .editAccount(account):
-                AccountEditFlow(contentType: .edit(account), accountRepository: accountRepository)
+                AccountEditFlow(contentType: .edit(account), dependencies: dependencies)
             }
         }
     }
@@ -35,13 +35,13 @@ struct RootFlow: View {
 private extension RootFlow {
     @MainActor
     var accountListView: AccountListView {
-        let router = AccountListModule.Router(
+        let router = AccountListFeature.Router(
             onCreateAccount: { self.sheetRoute = .newAccount },
             onEditAccount: { self.sheetRoute = .editAccount($0) }
         )
-        let store = AccountListStore(
-            accountRepository: self.accountRepository,
-            router: router
+        let store = AccountListFeature.store(
+            with: router,
+            dependencies: self.dependencies
         )
         return AccountListView(store: store)
     }

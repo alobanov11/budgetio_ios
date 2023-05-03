@@ -6,8 +6,8 @@ import StoreSwift
 import SwiftUI
 
 struct AccountEditFlow: View {
-    let contentType: AccountEditModule.ContentType
-    let accountRepository: IAccountRepository
+    let contentType: AccountEditFeature.ContentType
+    let dependencies: Dependencies
 
     @Environment(\.dismiss) private var dismiss
 
@@ -26,10 +26,10 @@ struct AccountEditFlow: View {
 private extension AccountEditFlow {
     @MainActor
     func accountEditView(with account: AccountEntity?) -> AccountEditView {
-        let store = AccountEditStore(
-            contentType: account.map { .edit($0) } ?? .new,
-            accountRepository: self.accountRepository,
-            router: .init(onDismiss: { dismiss() })
+        let store = AccountEditFeature.store(
+            with: account.map { .edit($0) } ?? .new,
+            router: .init(onDismiss: { dismiss() }),
+            dependencies: self.dependencies
         )
         return AccountEditView(store: store)
     }

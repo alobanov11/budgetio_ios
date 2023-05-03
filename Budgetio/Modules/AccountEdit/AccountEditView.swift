@@ -6,7 +6,7 @@ import StoreSwift
 import SwiftUI
 
 struct AccountEditView: View {
-    @StateObject var store: ViewStore<AccountEditModule>
+    @StateObject var store: Store<AccountEditFeature>
     @FocusState private var focused: Bool
 
     var body: some View {
@@ -22,7 +22,7 @@ struct AccountEditView: View {
                     proportionFieldView
                 }
 
-                if store.state.isNewAccount == false {
+                if store.isNewAccount == false {
                     Button(action: store.action(.didTapOnDelete)) {
                         Label("Delete Account", systemImage: "trash.fill")
                             .font(.system(.headline, design: .monospaced))
@@ -34,7 +34,7 @@ struct AccountEditView: View {
             .padding()
             .padding(.vertical)
         }
-        .navigationTitle(store.state.isNewAccount ? "New account" : "Edit account")
+        .navigationTitle(store.isNewAccount ? "New account" : "Edit account")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -44,9 +44,9 @@ struct AccountEditView: View {
             }
             ToolbarItem {
                 Button(action: store.action(.didTapOnDone)) {
-                    Text(store.state.isNewAccount ? "Add" : "Done")
+                    Text(store.isNewAccount ? "Add" : "Done")
                 }
-                .disabled(store.state.title.isEmpty)
+                .disabled(store.title.isEmpty)
             }
         }
         .onAppear {
@@ -113,13 +113,27 @@ private extension AccountEditView {
 }
 
 struct AccountEditPreview: PreviewProvider {
-    static var store: ViewStore<AccountEditModule> {
-        .init(initialState: .init(
+    static var state: AccountEditFeature.State {
+        AccountEditFeature.State(
             title: "",
             proportion: "",
             value: "",
             isNewAccount: true
-        ))
+        )
+    }
+
+    static var store: Store<AccountEditFeature> {
+        Store<AccountEditFeature>(
+            initialState: state,
+            enviroment: .init(
+                saveAccount: { _ in .init() },
+                deleteAccount: { _ in },
+                contentType: .new,
+                router: .init(onDismiss: {})
+            ),
+            middleware: { _, _, _ in .none },
+            reducer: { _, _ in }
+        )
     }
 
     static var previews: some View {

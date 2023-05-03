@@ -6,11 +6,11 @@ import StoreSwift
 import SwiftUI
 
 struct AccountListView: View {
-    @StateObject var store: ViewStore<AccountListModule>
+    @StateObject var store: Store<AccountListFeature>
 
     var body: some View {
         ZStack {
-            if store.state.data.isEmpty {
+            if store.data.isEmpty {
                 Button(action: store.action(.didTapOnCreateAccount)) {
                     Label("Add Account", systemImage: "plus.circle")
                         .font(.system(size: 16, weight: .bold, design: .monospaced))
@@ -21,13 +21,13 @@ struct AccountListView: View {
             else {
                 ScrollView {
                     VStack(alignment: .leading) {
-                        Text(store.state.total)
+                        Text(store.total)
                             .lineLimit(0, reservesSpace: false)
                             .minimumScaleFactor(0.01)
                             .font(.system(size: 34, weight: .bold, design: .monospaced))
                             .padding()
 
-                        ForEach(store.state.data) { account in
+                        ForEach(store.data) { account in
                             AccountRowView(account: account)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -56,8 +56,8 @@ struct AccountListView: View {
 private extension AccountListView {}
 
 struct AccountListPreview: PreviewProvider {
-    static var store: ViewStore<AccountListModule> {
-        .init(initialState: .init(
+    static var state: AccountListFeature.State {
+        .init(
             isDataLoaded: true,
             isLoading: false,
             data: Array(0 ..< 5).map {
@@ -68,11 +68,34 @@ struct AccountListPreview: PreviewProvider {
                     originalProportion: "\($0)%",
                     value: "\(1000 * $0) RUB",
                     diff: "\(10 * $0) RUB",
-                    isPositive: $0 % 2 == 0
+                    isPositive: $0 % 2 == 0,
+                    records: Array(0...20).map {
+                        .init(
+                            id: nil,
+                            date: .now.addingTimeInterval(60 * 60 * 60 * TimeInterval($0)),
+                            value: $0 > 10 ? Double($0) * 100 + 100 : Double($0) * 200 - 100
+                        )
+                    }
                 )
             },
             total: "100 000 RUB"
-        ))
+        )
+    }
+
+    static var store: Store<AccountListFeature> {
+        Store<AccountListFeature>(
+            initialState: state,
+            enviroment: .init(
+                fetchAccounts: { [] },
+                sendAnalytics: { _ in },
+                router: .init(
+                    onCreateAccount: {},
+                    onEditAccount: { _ in }
+                )
+            ),
+            middleware: { _, _, _ in .none },
+            reducer: { _, _ in }
+        )
     }
 
     static var previews: some View {

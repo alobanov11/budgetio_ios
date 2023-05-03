@@ -13,20 +13,32 @@
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
 		E2182410294119610070B4E7 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218240F294119610070B4E7 /* AccountListView.swift */; };
 		E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2399D6929A9182D0043CB51 /* AccountRowView.swift */; };
+		E2A2F2EC2A011E1500D40FF5 /* BudgetioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */; };
+		E2A2F3062A017F6D00D40FF5 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2F3052A017F6D00D40FF5 /* AnalyticsService.swift */; };
 		E2B8536729F0635200B82801 /* AccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99329744CFC0084C929 /* AccountFlow.swift */; };
-		E2B8536C29F0638900B82801 /* AccountEditModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98929743A6C0084C929 /* AccountEditModule.swift */; };
-		E2B8536D29F0638900B82801 /* AccountEditStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98B29743A720084C929 /* AccountEditStore.swift */; };
+		E2B8536C29F0638900B82801 /* AccountEditFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98929743A6C0084C929 /* AccountEditFeature.swift */; };
 		E2B8536E29F0638900B82801 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2182412294122030070B4E7 /* AccountEditView.swift */; };
+		E2B8537029F192D100B82801 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B8536F29F192D100B82801 /* Dependencies.swift */; };
+		E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B8537129F199BA00B82801 /* RecordEntity.swift */; };
 		E2BAB97A297350550084C929 /* StoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2BAB979297350550084C929 /* StoreSwift */; };
-		E2BAB981297350F40084C929 /* AccountListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB980297350F40084C929 /* AccountListModule.swift */; };
+		E2BAB981297350F40084C929 /* AccountListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB980297350F40084C929 /* AccountListFeature.swift */; };
 		E2BAB9842973F5FA0084C929 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB9832973F5FA0084C929 /* AccountRepository.swift */; };
-		E2BAB986297431790084C929 /* AccountListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB985297431790084C929 /* AccountListStore.swift */; };
 		E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AccountEntity.swift */; };
 		E2BAB99229744CBB0084C929 /* RootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB99129744CBB0084C929 /* RootFlow.swift */; };
 		E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* MessageError.swift */; };
 		E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA707294F69370081AEBB /* View+ScenePhase.swift */; };
 		E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA709294F69370081AEBB /* View+Hidden.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2A2F2ED2A011E1500D40FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E21823F0293F81410070B4E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E21823F7293F81410070B4E7;
+			remoteInfo = Budgetio;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E21823F8293F81410070B4E7 /* Budgetio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,12 +50,18 @@
 		E218240F294119610070B4E7 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
 		E2182412294122030070B4E7 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
 		E2399D6929A9182D0043CB51 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
+		E2A2F2E92A011E1500D40FF5 /* BudgetioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetioTests.swift; sourceTree = "<group>"; };
+		E2A2F3052A017F6D00D40FF5 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		E2A2F31F2A02D00B00D40FF5 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
+		E2A2F3202A02D02700D40FF5 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
+		E2A2F3212A02D09900D40FF5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		E2ABC76129C7AC8A006FF48F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E2BAB980297350F40084C929 /* AccountListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListModule.swift; sourceTree = "<group>"; };
+		E2B8536F29F192D100B82801 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		E2B8537129F199BA00B82801 /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
+		E2BAB980297350F40084C929 /* AccountListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListFeature.swift; sourceTree = "<group>"; };
 		E2BAB9832973F5FA0084C929 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
-		E2BAB985297431790084C929 /* AccountListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListStore.swift; sourceTree = "<group>"; };
-		E2BAB98929743A6C0084C929 /* AccountEditModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModule.swift; sourceTree = "<group>"; };
-		E2BAB98B29743A720084C929 /* AccountEditStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditStore.swift; sourceTree = "<group>"; };
+		E2BAB98929743A6C0084C929 /* AccountEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditFeature.swift; sourceTree = "<group>"; };
 		E2BAB98F29744B9C0084C929 /* AccountEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
 		E2BAB99129744CBB0084C929 /* RootFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlow.swift; sourceTree = "<group>"; };
 		E2BAB99329744CFC0084C929 /* AccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFlow.swift; sourceTree = "<group>"; };
@@ -61,13 +79,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2A2F2E62A011E1500D40FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E21823EF293F81410070B4E7 = {
 			isa = PBXGroup;
 			children = (
+				E2A2F3212A02D09900D40FF5 /* Makefile */,
+				E2A2F3202A02D02700D40FF5 /* .github */,
+				E2A2F31F2A02D00B00D40FF5 /* fastlane */,
 				E21823FA293F81410070B4E7 /* Budgetio */,
+				E2A2F2EA2A011E1500D40FF5 /* BudgetioTests */,
 				E21823F9293F81410070B4E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E21823F8293F81410070B4E7 /* Budgetio.app */,
+				E2A2F2E92A011E1500D40FF5 /* BudgetioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +116,7 @@
 			children = (
 				E2ABC76129C7AC8A006FF48F /* Info.plist */,
 				E21823FB293F81410070B4E7 /* App.swift */,
+				E2B8536F29F192D100B82801 /* Dependencies.swift */,
 				E2BAB98E29744B8D0084C929 /* Entities */,
 				E2EAA705294F692D0081AEBB /* Extensions */,
 				E2BAB98D29744B770084C929 /* Flows */,
@@ -93,33 +124,25 @@
 				E2BAB97F297350C60084C929 /* Persistence */,
 				E2BAB9822973F4DF0084C929 /* Repositories */,
 				E2BAB97B2973506F0084C929 /* Resources */,
+				E2A2F3042A017F5E00D40FF5 /* Services */,
 			);
 			path = Budgetio;
 			sourceTree = "<group>";
 		};
-		E2B8536829F0635C00B82801 /* Module */ = {
+		E2A2F2EA2A011E1500D40FF5 /* BudgetioTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2BAB980297350F40084C929 /* AccountListModule.swift */,
+				E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */,
 			);
-			path = Module;
+			path = BudgetioTests;
 			sourceTree = "<group>";
 		};
-		E2B8536929F0635E00B82801 /* Store */ = {
+		E2A2F3042A017F5E00D40FF5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E2BAB985297431790084C929 /* AccountListStore.swift */,
+				E2A2F3052A017F6D00D40FF5 /* AnalyticsService.swift */,
 			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		E2B8536B29F0637100B82801 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E2399D6929A9182D0043CB51 /* AccountRowView.swift */,
-				E218240F294119610070B4E7 /* AccountListView.swift */,
-			);
-			path = View;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E2BAB97B2973506F0084C929 /* Resources */ = {
@@ -144,9 +167,9 @@
 		E2BAB97D297350B10084C929 /* AccountList */ = {
 			isa = PBXGroup;
 			children = (
-				E2B8536829F0635C00B82801 /* Module */,
-				E2B8536929F0635E00B82801 /* Store */,
-				E2B8536B29F0637100B82801 /* View */,
+				E2BAB980297350F40084C929 /* AccountListFeature.swift */,
+				E218240F294119610070B4E7 /* AccountListView.swift */,
+				E2399D6929A9182D0043CB51 /* AccountRowView.swift */,
 			);
 			path = AccountList;
 			sourceTree = "<group>";
@@ -154,8 +177,7 @@
 		E2BAB97E297350B50084C929 /* AccountEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E2BAB98929743A6C0084C929 /* AccountEditModule.swift */,
-				E2BAB98B29743A720084C929 /* AccountEditStore.swift */,
+				E2BAB98929743A6C0084C929 /* AccountEditFeature.swift */,
 				E2182412294122030070B4E7 /* AccountEditView.swift */,
 			);
 			path = AccountEdit;
@@ -190,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BAB98F29744B9C0084C929 /* AccountEntity.swift */,
+				E2B8537129F199BA00B82801 /* RecordEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -227,6 +250,24 @@
 			productReference = E21823F8293F81410070B4E7 /* Budgetio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E2A2F2E82A011E1500D40FF5 /* BudgetioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2A2F2EF2A011E1500D40FF5 /* Build configuration list for PBXNativeTarget "BudgetioTests" */;
+			buildPhases = (
+				E2A2F2E52A011E1500D40FF5 /* Sources */,
+				E2A2F2E62A011E1500D40FF5 /* Frameworks */,
+				E2A2F2E72A011E1500D40FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2A2F2EE2A011E1500D40FF5 /* PBXTargetDependency */,
+			);
+			name = BudgetioTests;
+			productName = BudgetioTests;
+			productReference = E2A2F2E92A011E1500D40FF5 /* BudgetioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,11 +275,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					E21823F7293F81410070B4E7 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					E2A2F2E82A011E1500D40FF5 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E21823F7293F81410070B4E7;
 					};
 				};
 			};
@@ -252,13 +297,14 @@
 			);
 			mainGroup = E21823EF293F81410070B4E7;
 			packageReferences = (
-				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */,
+				E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */,
 			);
 			productRefGroup = E21823F9293F81410070B4E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E21823F7293F81410070B4E7 /* Budgetio */,
+				E2A2F2E82A011E1500D40FF5 /* BudgetioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +318,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2A2F2E72A011E1500D40FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -280,18 +333,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */,
-				E2B8536D29F0638900B82801 /* AccountEditStore.swift in Sources */,
 				E2182410294119610070B4E7 /* AccountListView.swift in Sources */,
-				E2BAB986297431790084C929 /* AccountListStore.swift in Sources */,
+				E2A2F3062A017F6D00D40FF5 /* AnalyticsService.swift in Sources */,
 				E2BAB99229744CBB0084C929 /* RootFlow.swift in Sources */,
 				E2B8536E29F0638900B82801 /* AccountEditView.swift in Sources */,
 				E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */,
-				E2B8536C29F0638900B82801 /* AccountEditModule.swift in Sources */,
+				E2B8536C29F0638900B82801 /* AccountEditFeature.swift in Sources */,
 				E2B8536729F0635200B82801 /* AccountFlow.swift in Sources */,
 				E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */,
 				E2182405293F81430070B4E7 /* PersistenceController.swift in Sources */,
+				E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */,
 				E2399D6A29A9182D0043CB51 /* AccountRowView.swift in Sources */,
-				E2BAB981297350F40084C929 /* AccountListModule.swift in Sources */,
+				E2B8537029F192D100B82801 /* Dependencies.swift in Sources */,
+				E2BAB981297350F40084C929 /* AccountListFeature.swift in Sources */,
 				E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */,
 				E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */,
 				E21823FC293F81410070B4E7 /* App.swift in Sources */,
@@ -299,7 +353,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2A2F2E52A011E1500D40FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2A2F2EC2A011E1500D40FF5 /* BudgetioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2A2F2EE2A011E1500D40FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E21823F7293F81410070B4E7 /* Budgetio */;
+			targetProxy = E2A2F2ED2A011E1500D40FF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E218240A293F81430070B4E7 /* Debug */ = {
@@ -498,6 +568,44 @@
 			};
 			name = Release;
 		};
+		E2A2F2F02A011E1500D40FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.BudgetioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Budgetio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Budgetio";
+			};
+			name = Debug;
+		};
+		E2A2F2F12A011E1500D40FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.BudgetioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Budgetio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Budgetio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,15 +627,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E2A2F2EF2A011E1500D40FF5 /* Build configuration list for PBXNativeTarget "BudgetioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2A2F2F02A011E1500D40FF5 /* Debug */,
+				E2A2F2F12A011E1500D40FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */ = {
+		E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
 				kind = revision;
-				revision = 9151c004dbd52f5d87e6c0da5683e1468f6c13f2;
+				revision = 7792e33aee149490d3158b992ae8fea84766bb01;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -535,7 +652,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E2BAB979297350550084C929 /* StoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift.git" */;
+			package = E2BAB978297350550084C929 /* XCRemoteSwiftPackageReference "StoreSwift" */;
 			productName = StoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
