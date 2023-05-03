@@ -2,11 +2,10 @@
 //  Created by Антон Лобанов on 02.05.2023.
 //
 
-import XCTest
 @testable import Budgetio
+import XCTest
 
 final class BudgetioTests: XCTestCase {
-
     func testViewAppear() async {
         // arrange
         let middleware = AccountListFeature.middleware
@@ -54,5 +53,4 @@ final class BudgetioTests: XCTestCase {
             .tapOnAccount(accountEntity.title, position: 0),
         ])
     }
-
 }

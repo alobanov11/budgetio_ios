@@ -2,8 +2,8 @@
 //  Created by Антон Лобанов on 24.02.2023.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 struct AccountRowView: View {
     let account: AccountListFeature.State.Account
@@ -70,7 +70,7 @@ struct AccountRowPreview: PreviewProvider {
                 value: "2000 RUB",
                 diff: "150 RUB",
                 isPositive: false,
-                records: Array(0...1).map {
+                records: Array(0 ... 1).map {
                     AccountListFeature.State.Record(
                         id: nil,
                         date: .now.addingTimeInterval(60 * 60 * 60 * TimeInterval($0)),
@@ -81,7 +81,7 @@ struct AccountRowPreview: PreviewProvider {
                         id: nil,
                         date: .now,
                         value: 0
-                    )
+                    ),
                 ]
             ))
         }
@@ -90,8 +90,8 @@ struct AccountRowPreview: PreviewProvider {
 
 private extension Array where Element == Double {
     var isIncreasingArray: Bool {
-        for i in 1..<self.count {
-            if self[i] < self[i-1] {
+        for i in 1 ..< self.count {
+            if self[i] < self[i - 1] {
                 return false
             }
         }

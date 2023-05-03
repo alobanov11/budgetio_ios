@@ -6,40 +6,32 @@ import Foundation
 import StoreSwift
 
 enum AccountListFeature: Feature {
-
     struct Router {
-
         let onCreateAccount: () -> Void
         let onEditAccount: (AccountEntity) -> Void
     }
 
     enum Action {
-
         case viewAppear
         case didTapOnAccount(State.Account)
         case didTapOnCreateAccount
     }
 
     enum Feedback {
-
         case accountsWasUpdated
     }
 
     enum Effect: Equatable {
-
         case setLoading(Bool)
         case setAccounts([AccountEntity])
     }
 
     enum Output: Equatable {
-
         case errorFetchingAccounts
     }
 
     struct State: Equatable {
-
         struct Account: Identifiable, Hashable {
-
             let id: AccountID?
             let title: String
             let proportion: String
@@ -51,7 +43,6 @@ enum AccountListFeature: Feature {
         }
 
         struct Record: Identifiable, Hashable {
-
             let id: RecordID?
             let date: Date
             let value: Double
@@ -64,7 +55,6 @@ enum AccountListFeature: Feature {
     }
 
     struct Enviroment {
-
         var accounts: [AccountEntity] = []
 
         let fetchAccounts: () async throws -> [AccountEntity]
@@ -96,9 +86,8 @@ enum AccountListFeature: Feature {
 }
 
 extension AccountListFeature {
-
     static var middleware: Store<AccountListFeature>.Middleware {
-        { state, env, intent in
+        { _, env, intent in
             switch intent {
             case .action(.viewAppear), .feedback(.accountsWasUpdated):
                 return .combine(
@@ -139,7 +128,6 @@ extension AccountListFeature {
 }
 
 extension AccountListFeature {
-
     static var reducer: Store<AccountListFeature>.Reducer {
         { state, effect in
             switch effect {
@@ -158,7 +146,6 @@ extension AccountListFeature {
 }
 
 extension AccountListFeature {
-
     static func mapAccount(with account: AccountEntity, total: Double) -> State.Account {
         let proportion: Double = {
             if total > 0, account.value > 0 {
@@ -178,13 +165,13 @@ extension AccountListFeature {
         }
 
         if records.count == 1 {
-            let record = (records[0])
+            let record = records[0]
             records = [
                 .init(
                     id: nil,
                     date: record.date.addingTimeInterval(86400 * -1),
                     value: 0
-                )
+                ),
             ] + records
         }
 

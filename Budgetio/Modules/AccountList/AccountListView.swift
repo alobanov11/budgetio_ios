@@ -69,7 +69,7 @@ struct AccountListPreview: PreviewProvider {
                     value: "\(1000 * $0) RUB",
                     diff: "\(10 * $0) RUB",
                     isPositive: $0 % 2 == 0,
-                    records: Array(0...20).map {
+                    records: Array(0 ... 20).map {
                         .init(
                             id: nil,
                             date: .now.addingTimeInterval(60 * 60 * 60 * TimeInterval($0)),

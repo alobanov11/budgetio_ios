@@ -6,7 +6,6 @@ import Foundation
 import StoreSwift
 
 enum AccountEditFeature: Feature {
-
     enum ContentType {
         case new
         case edit(AccountEntity)
@@ -22,12 +21,10 @@ enum AccountEditFeature: Feature {
     }
 
     struct Router {
-
         let onDismiss: () -> Void
     }
 
     enum Action: Equatable {
-
         case viewAppear
         case didEditTitle
         case didEditValue
@@ -38,22 +35,19 @@ enum AccountEditFeature: Feature {
     }
 
     enum Effect: Equatable {
-
         case setAccount(AccountEntity)
         case setTitle(String)
         case setProportion(String)
     }
 
     struct Enviroment {
-
         let saveAccount: (_: AccountEntity) async throws -> AccountEntity
-        let deleteAccount: (_:AccountID) async throws -> Void
+        let deleteAccount: (_: AccountID) async throws -> Void
         let contentType: ContentType
         let router: Router
     }
 
     struct State: Equatable {
-
         var title = ""
         var proportion = ""
         var value = ""
@@ -81,7 +75,6 @@ enum AccountEditFeature: Feature {
 }
 
 extension AccountEditFeature {
-
     static var middleware: Store<AccountEditFeature>.Middleware {
         { state, env, intent in
             switch intent {
@@ -142,14 +135,12 @@ extension AccountEditFeature {
             case .action(.didTapOnCancel):
                 env.router.onDismiss()
                 return .none
-
             }
         }
     }
 }
 
 extension AccountEditFeature {
-
     static var reducer: Store<AccountEditFeature>.Reducer {
         { state, effect in
             switch effect {
