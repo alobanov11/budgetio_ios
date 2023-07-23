@@ -1,5 +1,5 @@
-import Foundation
 import ComposableArchitecture
+import Foundation
 
 struct AssetList: ReducerProtocol {
     struct State: Equatable {
@@ -128,7 +128,7 @@ private extension AssetList {
             }
         }()
 
-        let dates: [Date] = Array(-1..<period).compactMap {
+        let dates: [Date] = Array(-1 ..< period).compactMap {
             self.calendar.date(byAdding: .day, value: -$0, to: .now)
                 .flatMap { self.calendar.startOfDay(for: $0) }
         }.reversed()

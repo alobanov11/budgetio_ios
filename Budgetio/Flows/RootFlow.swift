@@ -1,5 +1,5 @@
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 struct RootFlow: View {
     struct State: Equatable {
@@ -94,7 +94,7 @@ struct RootFlowPreview: PreviewProvider {
                         title: "Asset #2",
                         value: 40,
                         records: []
-                    )
+                    ),
                 ]
             }
         } operation: {

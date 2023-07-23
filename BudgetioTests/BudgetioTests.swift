@@ -1,5 +1,4 @@
 @testable import Budgetio
 import XCTest
 
-final class BudgetioTests: XCTestCase {
-}
+final class BudgetioTests: XCTestCase {}

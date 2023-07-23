@@ -1,6 +1,6 @@
-import Foundation
-import CoreData
 import ComposableArchitecture
+import CoreData
+import Foundation
 
 struct PersistanceClient {
     var context: () -> NSManagedObjectContext

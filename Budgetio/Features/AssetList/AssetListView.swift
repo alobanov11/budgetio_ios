@@ -1,6 +1,6 @@
-import SwiftUI
 import Charts
 import ComposableArchitecture
+import SwiftUI
 
 struct AssetListView: View {
     let store: StoreOf<AssetList>

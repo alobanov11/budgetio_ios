@@ -1,7 +1,7 @@
-import Foundation
-import CoreData
 import Combine
 import ComposableArchitecture
+import CoreData
+import Foundation
 
 struct AssetRepository {
     var onUpdate: () -> AnyPublisher<Void, Never>
@@ -98,6 +98,7 @@ private extension AssetRepository {
         }
     }
 }
+
 private extension AssetEntity {
     init(with asset: Asset) {
         self.id = asset.objectID
