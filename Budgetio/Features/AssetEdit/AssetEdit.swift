@@ -1,14 +1,14 @@
 import Foundation
 import ComposableArchitecture
 
-struct AccountEdit: ReducerProtocol {
+struct AssetEdit: ReducerProtocol {
     struct State: Equatable {
         var view = View.State()
-        let account: AccountEntity?
+        let asset: AssetEntity?
 
-        init(account: AccountEntity?) {
-            self.view = View.State(isNew: account == nil)
-            self.account = account
+        init(asset: AssetEntity?) {
+            self.view = View.State(isNew: asset == nil)
+            self.asset = asset
         }
     }
 
@@ -16,7 +16,7 @@ struct AccountEdit: ReducerProtocol {
         case view(View.Action)
     }
 
-    @Dependency(\.accountRepository) var accountRepository
+    @Dependency(\.assetRepository) var assetRepository
     @Dependency(\.dismiss) var dismiss
 
     var body: some ReducerProtocolOf<Self> {
@@ -26,17 +26,16 @@ struct AccountEdit: ReducerProtocol {
         Reduce<State, Action> { state, action in
             switch action {
             case .view(.viewAppeared):
-                if let account = state.account {
-                    state.view.title = account.title
-                    state.view.value = "\(Int(account.value))"
-                    state.view.proportion = "\(Int(account.proportion))"
+                if let asset = state.asset {
+                    state.view.title = asset.title
+                    state.view.value = "\(Int(asset.value))"
                 }
                 return .none
 
             case .view(.deleteTapped):
-                guard let id = state.account?.id else { return .none }
+                guard let id = state.asset?.id else { return .none }
                 do {
-                    try self.accountRepository.delete(id)
+                    try self.assetRepository.delete(id)
                     return .run { _ in
                         await self.dismiss()
                     }
@@ -52,11 +51,10 @@ struct AccountEdit: ReducerProtocol {
                     return .none
                 }
                 do {
-                    _ = try self.accountRepository.save(AccountEntity(
-                        id: state.account?.id,
+                    _ = try self.assetRepository.save(AssetEntity(
+                        id: state.asset?.id,
                         title: state.view.title,
                         value: Double(state.view.value) ?? 0,
-                        proportion: Int(state.view.proportion) ?? 0,
                         records: []
                     ))
                     return .run { _ in
@@ -82,7 +80,6 @@ struct AccountEdit: ReducerProtocol {
         struct State: Equatable {
             @BindingState var title = ""
             @BindingState var value = "0"
-            @BindingState var proportion = "0"
             var error: String?
             var isNew = true
         }

@@ -4,26 +4,26 @@ import ComposableArchitecture
 struct RootFlow: View {
     struct State: Equatable {
         var path = StackState<Path.State>()
-        var accountList = AccountList.State()
+        var assetList = AssetList.State()
     }
 
     enum Action: Equatable {
-        case accountList(AccountList.Action)
+        case assetList(AssetList.Action)
         case path(StackAction<Path.State, Path.Action>)
     }
 
     struct Path: ReducerProtocol {
         enum State: Equatable {
-            case accountEdit(AccountEdit.State)
+            case assetEdit(AssetEdit.State)
         }
 
         enum Action: Equatable {
-            case accountEdit(AccountEdit.Action)
+            case assetEdit(AssetEdit.Action)
         }
 
         var body: some ReducerProtocolOf<Self> {
-            Scope(state: /State.accountEdit, action: /Action.accountEdit) {
-                AccountEdit()
+            Scope(state: /State.assetEdit, action: /Action.assetEdit) {
+                AssetEdit()
             }
         }
     }
@@ -34,20 +34,20 @@ struct RootFlow: View {
         self.store = Store(
             initialState: State(),
             reducer: {
-                Scope(state: \.accountList, action: /Action.accountList) {
-                    AccountList()
+                Scope(state: \.assetList, action: /Action.assetList) {
+                    AssetList()
                 }
                 Reduce<State, Action> { state, action in
                     switch action {
-                    case let .accountList(.route(.editAccount(account))):
-                        state.path.append(.accountEdit(AccountEdit.State(account: account)))
+                    case let .assetList(.route(.editAsset(asset))):
+                        state.path.append(.assetEdit(AssetEdit.State(asset: asset)))
                         return .none
 
-                    case .accountList(.route(.createAccount)):
-                        state.path.append(.accountEdit(AccountEdit.State(account: nil)))
+                    case .assetList(.route(.createAsset)):
+                        state.path.append(.assetEdit(AssetEdit.State(asset: nil)))
                         return .none
 
-                    case .accountList:
+                    case .assetList:
                         return .none
 
                     case .path:
@@ -64,14 +64,14 @@ struct RootFlow: View {
         NavigationStackStore(
             self.store.scope(state: \.path, action: Action.path)
         ) {
-            AccountListView(store: store.scope(state: \.accountList, action: Action.accountList))
+            AssetListView(store: store.scope(state: \.assetList, action: Action.assetList))
         } destination: { state in
             switch state {
-            case .accountEdit:
+            case .assetEdit:
                 CaseLet(
-                    state: /Path.State.accountEdit,
-                    action: Path.Action.accountEdit,
-                    then: AccountEditView.init(store:)
+                    state: /Path.State.assetEdit,
+                    action: Path.Action.assetEdit,
+                    then: AssetEditView.init(store:)
                 )
             }
         }
@@ -81,20 +81,18 @@ struct RootFlow: View {
 struct RootFlowPreview: PreviewProvider {
     static var previews: some View {
         withDependencies {
-            $0.accountRepository.fetch = {
+            $0.assetRepository.fetch = {
                 [
-                    AccountEntity(
-                        id: AccountID(),
-                        title: "Account #1",
+                    AssetEntity(
+                        id: AssetID(),
+                        title: "Asset #1",
                         value: 20,
-                        proportion: 20,
                         records: []
                     ),
-                    AccountEntity(
-                        id: AccountID(),
-                        title: "Account #2",
+                    AssetEntity(
+                        id: AssetID(),
+                        title: "Asset #2",
                         value: 40,
-                        proportion: 40,
                         records: []
                     )
                 ]

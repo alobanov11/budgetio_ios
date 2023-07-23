@@ -12,15 +12,15 @@
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
 		E27814C02A56E26600C052A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = E27814BF2A56E26600C052A2 /* ComposableArchitecture */; };
 		E27814C32A56E27C00C052A2 /* PersistanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C22A56E27C00C052A2 /* PersistanceClient.swift */; };
-		E27814C52A56E38400C052A2 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C42A56E38400C052A2 /* AccountRepository.swift */; };
-		E27814C92A56E56D00C052A2 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C82A56E56D00C052A2 /* AccountList.swift */; };
-		E27814CB2A56E68700C052A2 /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814CA2A56E68700C052A2 /* AccountListView.swift */; };
+		E27814C52A56E38400C052A2 /* AssetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C42A56E38400C052A2 /* AssetRepository.swift */; };
+		E27814C92A56E56D00C052A2 /* AssetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C82A56E56D00C052A2 /* AssetList.swift */; };
+		E27814CB2A56E68700C052A2 /* AssetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814CA2A56E68700C052A2 /* AssetListView.swift */; };
 		E27814D02A581CE300C052A2 /* RootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814CF2A581CE300C052A2 /* RootFlow.swift */; };
-		E27814D32A5821EC00C052A2 /* AccountEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D22A5821EC00C052A2 /* AccountEdit.swift */; };
-		E27814D52A58224300C052A2 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D42A58224300C052A2 /* AccountEditView.swift */; };
+		E27814D32A5821EC00C052A2 /* AssetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D22A5821EC00C052A2 /* AssetEdit.swift */; };
+		E27814D52A58224300C052A2 /* AssetEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D42A58224300C052A2 /* AssetEditView.swift */; };
 		E2A2F2EC2A011E1500D40FF5 /* BudgetioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */; };
 		E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B8537129F199BA00B82801 /* RecordEntity.swift */; };
-		E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AccountEntity.swift */; };
+		E2BAB99029744B9C0084C929 /* AssetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AssetEntity.swift */; };
 		E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* MessageError.swift */; };
 		E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA707294F69370081AEBB /* View+ScenePhase.swift */; };
 		E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA709294F69370081AEBB /* View+Hidden.swift */; };
@@ -43,12 +43,12 @@
 		E2182407293F81430070B4E7 /* Budgetio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgetio.xcdatamodel; sourceTree = "<group>"; };
 		E2182409293F81430070B4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E27814C22A56E27C00C052A2 /* PersistanceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceClient.swift; sourceTree = "<group>"; };
-		E27814C42A56E38400C052A2 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
-		E27814C82A56E56D00C052A2 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
-		E27814CA2A56E68700C052A2 /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
+		E27814C42A56E38400C052A2 /* AssetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRepository.swift; sourceTree = "<group>"; };
+		E27814C82A56E56D00C052A2 /* AssetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetList.swift; sourceTree = "<group>"; };
+		E27814CA2A56E68700C052A2 /* AssetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListView.swift; sourceTree = "<group>"; };
 		E27814CF2A581CE300C052A2 /* RootFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlow.swift; sourceTree = "<group>"; };
-		E27814D22A5821EC00C052A2 /* AccountEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEdit.swift; sourceTree = "<group>"; };
-		E27814D42A58224300C052A2 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		E27814D22A5821EC00C052A2 /* AssetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEdit.swift; sourceTree = "<group>"; };
+		E27814D42A58224300C052A2 /* AssetEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEditView.swift; sourceTree = "<group>"; };
 		E2A2F2E92A011E1500D40FF5 /* BudgetioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetioTests.swift; sourceTree = "<group>"; };
 		E2A2F31F2A02D00B00D40FF5 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		E2A2F3212A02D09900D40FF5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		E2ABC76129C7AC8A006FF48F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2B8537129F199BA00B82801 /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
-		E2BAB98F29744B9C0084C929 /* AccountEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
+		E2BAB98F29744B9C0084C929 /* AssetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEntity.swift; sourceTree = "<group>"; };
 		E2EAA706294F69370081AEBB /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		E2EAA707294F69370081AEBB /* View+ScenePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ScenePhase.swift"; sourceTree = "<group>"; };
 		E2EAA709294F69370081AEBB /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				E27814C22A56E27C00C052A2 /* PersistanceClient.swift */,
-				E27814C42A56E38400C052A2 /* AccountRepository.swift */,
+				E27814C42A56E38400C052A2 /* AssetRepository.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -130,19 +130,19 @@
 		E27814C62A56E56000C052A2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				E27814D12A5821E200C052A2 /* AccountEdit */,
-				E27814C72A56E56600C052A2 /* AccountList */,
+				E27814D12A5821E200C052A2 /* AssetEdit */,
+				E27814C72A56E56600C052A2 /* AssetList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		E27814C72A56E56600C052A2 /* AccountList */ = {
+		E27814C72A56E56600C052A2 /* AssetList */ = {
 			isa = PBXGroup;
 			children = (
-				E27814C82A56E56D00C052A2 /* AccountList.swift */,
-				E27814CA2A56E68700C052A2 /* AccountListView.swift */,
+				E27814C82A56E56D00C052A2 /* AssetList.swift */,
+				E27814CA2A56E68700C052A2 /* AssetListView.swift */,
 			);
-			path = AccountList;
+			path = AssetList;
 			sourceTree = "<group>";
 		};
 		E27814CE2A581CD900C052A2 /* Flows */ = {
@@ -153,13 +153,13 @@
 			path = Flows;
 			sourceTree = "<group>";
 		};
-		E27814D12A5821E200C052A2 /* AccountEdit */ = {
+		E27814D12A5821E200C052A2 /* AssetEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E27814D22A5821EC00C052A2 /* AccountEdit.swift */,
-				E27814D42A58224300C052A2 /* AccountEditView.swift */,
+				E27814D22A5821EC00C052A2 /* AssetEdit.swift */,
+				E27814D42A58224300C052A2 /* AssetEditView.swift */,
 			);
-			path = AccountEdit;
+			path = AssetEdit;
 			sourceTree = "<group>";
 		};
 		E2A2F2EA2A011E1500D40FF5 /* BudgetioTests */ = {
@@ -183,7 +183,7 @@
 		E2BAB98E29744B8D0084C929 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				E2BAB98F29744B9C0084C929 /* AccountEntity.swift */,
+				E2BAB98F29744B9C0084C929 /* AssetEntity.swift */,
 				E2B8537129F199BA00B82801 /* RecordEntity.swift */,
 			);
 			path = Entities;
@@ -304,15 +304,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27814CB2A56E68700C052A2 /* AccountListView.swift in Sources */,
-				E27814D32A5821EC00C052A2 /* AccountEdit.swift in Sources */,
+				E27814CB2A56E68700C052A2 /* AssetListView.swift in Sources */,
+				E27814D32A5821EC00C052A2 /* AssetEdit.swift in Sources */,
 				E27814D02A581CE300C052A2 /* RootFlow.swift in Sources */,
 				E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */,
-				E27814C52A56E38400C052A2 /* AccountRepository.swift in Sources */,
-				E27814C92A56E56D00C052A2 /* AccountList.swift in Sources */,
+				E27814C52A56E38400C052A2 /* AssetRepository.swift in Sources */,
+				E27814C92A56E56D00C052A2 /* AssetList.swift in Sources */,
 				E27814C32A56E27C00C052A2 /* PersistanceClient.swift in Sources */,
-				E27814D52A58224300C052A2 /* AccountEditView.swift in Sources */,
-				E2BAB99029744B9C0084C929 /* AccountEntity.swift in Sources */,
+				E27814D52A58224300C052A2 /* AssetEditView.swift in Sources */,
+				E2BAB99029744B9C0084C929 /* AssetEntity.swift in Sources */,
 				E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */,
 				E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */,
 				E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */,

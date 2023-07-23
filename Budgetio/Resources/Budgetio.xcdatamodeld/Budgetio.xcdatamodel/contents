@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Account" representedClassName="Account" syncable="YES" codeGenerationType="class">
-        <attribute name="proportion" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Asset" representedClassName="Asset" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String" defaultValueString="Account"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Record" inverseName="account" inverseEntity="Record"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Record" inverseName="asset" inverseEntity="Record"/>
     </entity>
     <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="records" inverseEntity="Account"/>
+        <relationship name="asset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="records" inverseEntity="Asset"/>
     </entity>
 </model>

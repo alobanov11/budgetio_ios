@@ -11,4 +11,5 @@ struct RecordEntity: Identifiable, Hashable {
     var id: RecordID?
     var date: Date = .now
     var value: Double = 0
+    var amount: Double = 0
 }

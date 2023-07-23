@@ -5,12 +5,11 @@
 import CoreData
 import Foundation
 
-typealias AccountID = NSManagedObjectID
+typealias AssetID = NSManagedObjectID
 
-struct AccountEntity: Identifiable, Hashable {
-    var id: AccountID?
+struct AssetEntity: Identifiable, Hashable {
+    var id: AssetID?
     var title: String = ""
     var value: Double = 0
-    var proportion: Int = 0
     var records: [RecordEntity] = []
 }

@@ -1,8 +1,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct AccountEditView: View {
-    let store: StoreOf<AccountEdit>
+struct AssetEditView: View {
+    let store: StoreOf<AssetEdit>
 
     var body: some View {
         WithViewStore(store, observe: \.view, send: { .view($0) }) { viewStore in
@@ -42,19 +42,19 @@ struct AccountEditView: View {
                     }
                 }
             }
-            .navigationTitle((viewStore.isNew ? "Create " : "Edit ") + "account")
+            .navigationTitle((viewStore.isNew ? "Create " : "Edit ") + "asset")
         }
     }
 }
 
-struct AccountEditPreview: PreviewProvider {
+struct AssetEditPreview: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AccountEditView(store: Store(
-                initialState: AccountEdit.State(
-                    account: nil
+            AssetEditView(store: Store(
+                initialState: AssetEdit.State(
+                    asset: nil
                 ),
-                reducer: AccountEdit()
+                reducer: AssetEdit()
             ))
         }
     }
