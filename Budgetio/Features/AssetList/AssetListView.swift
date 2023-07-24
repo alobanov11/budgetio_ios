@@ -95,8 +95,6 @@ struct AssetListView: View {
                     }
                 }
             }
-
-
         }
     }
 
@@ -112,7 +110,7 @@ struct AssetListView: View {
         }
     }
 
-    func sectionHeaderView(_ section: AssetList.View.State.Section, viewStore: AssetListViewStore) -> some View {
+    func sectionHeaderView(_ section: AssetList.View.State.Section, viewStore _: AssetListViewStore) -> some View {
         HStack {
             Text(section.name)
 
