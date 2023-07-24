@@ -56,7 +56,7 @@ struct AssetList: ReducerProtocol {
                 state.view.isLoading = false
                 state.view.isItemsLoaded = true
                 state.view.widget = self.widget(with: assets, for: .month)
-                state.view.sections = assets.reduce(into: []) { result, asset in
+                state.view.sections = assets.reduce(into: [View.State.Section(name: "Assets", items: [])]) { result, asset in
                     let nameComponents = asset.title.components(separatedBy: "/")
                     let item = View.State.Item(
                         id: asset.id,
@@ -65,9 +65,6 @@ struct AssetList: ReducerProtocol {
                     )
 
                     guard nameComponents.count == 2, let category = nameComponents.first else {
-                        if result.isEmpty {
-                            result.append(View.State.Section(name: "Assets", items: []))
-                        }
                         result[0].items.append(item)
                         result[0].items.sort { $0.title < $1.title }
                         return
