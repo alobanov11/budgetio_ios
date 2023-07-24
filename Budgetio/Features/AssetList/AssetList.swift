@@ -56,29 +56,27 @@ struct AssetList: ReducerProtocol {
                 state.view.isLoading = false
                 state.view.isItemsLoaded = true
                 state.view.widget = self.widget(with: assets, for: .month)
-                state.view.sections = assets.reduce(into: [View.State.Section(name: "Assets", items: [])]) { result, asset in
+                let total = assets.map(\.value).reduce(0, +)
+                state.view.sections = assets.reduce(into: [String: [AssetEntity]]()) { result, asset in
                     let nameComponents = asset.title.components(separatedBy: "/")
-                    let item = View.State.Item(
-                        id: asset.id,
-                        title: nameComponents.last ?? asset.title,
-                        value: asset.value.formatted(.currency(code: "USD"))
+                    let category = nameComponents.count == 2 ? nameComponents.first : nil
+                    result[category ?? "Assets", default: []].append(asset)
+                }.map { key, value in
+                    let categoryTotal = value.map(\.value).reduce(0, +)
+                    let proportion = Int((categoryTotal / total) * 100)
+                    return View.State.Section(
+                        name: key,
+                        info: categoryTotal.formatted(.currency(code: "USD")) + " / \(proportion)%",
+                        items: value.map {
+                            View.State.Item(
+                                id: $0.id,
+                                title: $0.title.components(separatedBy: "/").last ?? $0.title,
+                                value: $0.value.formatted(.currency(code: "USD"))
+                            )
+                        }
                     )
-
-                    guard nameComponents.count == 2, let category = nameComponents.first else {
-                        result[0].items.append(item)
-                        result[0].items.sort { $0.title < $1.title }
-                        return
-                    }
-
-                    if let categoryIndex = result.firstIndex(where: { $0.name == category }) {
-                        result[categoryIndex].items.append(item)
-                        result[categoryIndex].items.sort { $0.title < $1.title }
-                    }
-                    else {
-                        result.append(View.State.Section(name: category, items: [item]))
-                    }
-                }.filter { !$0.items.isEmpty }.sorted { $0.name < $1.name }
-                state.view.total = assets.map(\.value).reduce(0, +).formatted(.currency(code: "USD"))
+                }.sorted { $0.name < $1.name }
+                state.view.total = total.formatted(.currency(code: "USD"))
                 state.assets = assets
                 return .none
 
@@ -102,6 +100,7 @@ struct AssetList: ReducerProtocol {
             struct Section: Identifiable, Hashable {
                 var id: String { self.name }
                 let name: String
+                let info: String
                 var items: [Item]
             }
 

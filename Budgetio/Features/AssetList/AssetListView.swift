@@ -33,7 +33,7 @@ struct AssetListView: View {
                                 }
                                 .chartLegend(position: .top, alignment: .bottomTrailing)
                                 .chartXAxis(.hidden)
-                                .frame(height: 150)
+                                .frame(height: 128)
                             }
 
                             Section {
@@ -57,7 +57,7 @@ struct AssetListView: View {
                             }
                         }
                         ForEach(viewStore.sections, id: \.self) { section in
-                            Section(section.name) {
+                            Section {
                                 ForEach(section.items, id: \.self) { item in
                                     HStack {
                                         Text(item.title)
@@ -70,6 +70,16 @@ struct AssetListView: View {
                                     }
                                     .onTapGesture {
                                         viewStore.send(.itemTapped(item))
+                                    }
+                                }
+                            } header: {
+                                HStack {
+                                    Text(section.name)
+
+                                    Spacer()
+
+                                    if section.items.count > 1 {
+                                        Text(section.info)
                                     }
                                 }
                             }
@@ -117,7 +127,7 @@ struct AssetListPreview: PreviewProvider {
                         isLoading: false,
                         isItemsLoaded: true,
                         sections: [
-                            AssetList.View.State.Section(name: "Assets", items: [
+                            AssetList.View.State.Section(name: "Assets", info: "100$ / 10%", items: [
                                 AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00"),
                                 AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00"),
                             ]),
