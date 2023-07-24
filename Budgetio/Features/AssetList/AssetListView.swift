@@ -9,7 +9,7 @@ struct AssetListView: View {
         WithViewStore(store.scope(state: \.view, action: { .view($0) })) {
             (viewStore: ViewStore<AssetList.View.State, AssetList.View.Action>) in
             ZStack {
-                if viewStore.items.isEmpty {
+                if viewStore.sections.isEmpty {
                     VStack(spacing: 16) {
                         Text("Add you first asset")
                             .font(.caption)
@@ -47,28 +47,30 @@ struct AssetListView: View {
                                 }
 
                                 HStack {
-                                    Text("Expense")
+                                    Text("Lost")
 
                                     Spacer()
 
-                                    Text(widget.expense)
+                                    Text(widget.lost)
                                         .foregroundColor(.red)
                                 }
                             }
                         }
-                        Section("Assets") {
-                            ForEach(viewStore.items, id: \.self) { item in
-                                HStack {
-                                    Text(item.title)
-                                        .font(.body)
+                        ForEach(viewStore.sections, id: \.self) { section in
+                            Section(section.name) {
+                                ForEach(section.items, id: \.self) { item in
+                                    HStack {
+                                        Text(item.title)
+                                            .font(.body)
 
-                                    Spacer()
+                                        Spacer()
 
-                                    Text(item.value)
-                                        .font(.body)
-                                }
-                                .onTapGesture {
-                                    viewStore.send(.itemTapped(item))
+                                        Text(item.value)
+                                            .font(.body)
+                                    }
+                                    .onTapGesture {
+                                        viewStore.send(.itemTapped(item))
+                                    }
                                 }
                             }
                         }
@@ -91,7 +93,7 @@ struct AssetListView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if !viewStore.items.isEmpty {
+                    if !viewStore.sections.isEmpty {
                         Button(action: { viewStore.send(.addButtonTapped) }) {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -114,14 +116,16 @@ struct AssetListPreview: PreviewProvider {
                     view: AssetList.View.State(
                         isLoading: false,
                         isItemsLoaded: true,
-                        items: [
-                            AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00"),
-                            AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00"),
+                        sections: [
+                            AssetList.View.State.Section(name: "Assets", items: [
+                                AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00"),
+                                AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00"),
+                            ])
                         ],
                         widget: AssetList.View.State.Widget(
                             data: [],
                             saved: "$5.00",
-                            expense: "$100.00",
+                            lost: "$100.00",
                             period: .month
                         ),
                         total: "$100.00",

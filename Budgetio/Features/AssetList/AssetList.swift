@@ -56,13 +56,33 @@ struct AssetList: ReducerProtocol {
                 state.view.isLoading = false
                 state.view.isItemsLoaded = true
                 state.view.widget = self.widget(with: assets, for: .month)
-                state.view.items = assets.map {
-                    View.State.Item(
-                        id: $0.id,
-                        title: $0.title,
-                        value: $0.value.formatted(.currency(code: "USD"))
+                state.view.sections = assets.reduce(into: [], { result, asset in
+                    let nameComponents = asset.title.components(separatedBy: "/")
+                    let item = View.State.Item(
+                        id: asset.id,
+                        title: nameComponents.last ?? asset.title,
+                        value: asset.value.formatted(.currency(code: "USD"))
                     )
-                }
+
+                    guard nameComponents.count == 2, let category = nameComponents.first else {
+                        if result.isEmpty {
+                            result.append(View.State.Section(name: "Assets", items: []))
+                        }
+                        result[0].items.append(item)
+                        result[0].items.sort { $0.title < $1.title }
+                        return
+                    }
+
+                    if let categoryIndex = result.firstIndex(where: { $0.name == category }) {
+                        result[categoryIndex].items.append(item)
+                        result[categoryIndex].items.sort { $0.title < $1.title }
+                    }
+                    else {
+                        result.append(View.State.Section(name: category, items: [item]))
+                    }
+
+                    result.sort { $0.name < $1.name }
+                })
                 state.view.total = assets.map(\.value).reduce(0, +).formatted(.currency(code: "USD"))
                 state.assets = assets
                 return .none
@@ -84,6 +104,12 @@ struct AssetList: ReducerProtocol {
                 case month
             }
 
+            struct Section: Identifiable, Hashable {
+                var id: String { self.name }
+                let name: String
+                var items: [Item]
+            }
+
             struct Item: Identifiable, Hashable {
                 let id: AssetID?
                 let title: String
@@ -99,13 +125,13 @@ struct AssetList: ReducerProtocol {
 
                 let data: [Row]
                 let saved: String
-                let expense: String
+                let lost: String
                 let period: Period
             }
 
             var isLoading = false
             var isItemsLoaded = false
-            var items: [Item] = []
+            var sections: [Section] = []
             var widget: Widget?
             var total = "$000"
             var error: String?
@@ -147,8 +173,8 @@ private extension AssetList {
             result[date, default: 0] += record.amount
         }
 
-        let expense = amountByDay.values.filter { $0 < 0 }.reduce(0, +)
-        let saved = amountByDay.values.filter { $0 > 0 }.reduce(0, +) - expense
+        let lost = amountByDay.values.filter { $0 < 0 }.reduce(0, +)
+        let saved = amountByDay.values.filter { $0 > 0 }.reduce(0, +) - lost
 
         let recordValues = assets
             .reduce(into: Dictionary(
@@ -199,7 +225,7 @@ private extension AssetList {
         return View.State.Widget(
             data: data,
             saved: saved.formatted(.currency(code: "USD")),
-            expense: expense.formatted(.currency(code: "USD")),
+            lost: lost.formatted(.currency(code: "USD")),
             period: .month
         )
     }

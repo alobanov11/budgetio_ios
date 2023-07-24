@@ -7,10 +7,14 @@ struct AssetEditView: View {
     var body: some View {
         WithViewStore(store, observe: \.view, send: { .view($0) }) { viewStore in
             Form {
-                Section("Title") {
+                Section {
                     TextField("e.g. JP bank", text: viewStore.$title)
                         .autocorrectionDisabled()
                         .font(.body)
+                } header: {
+                    Text("Title")
+                } footer: {
+                    Text("Specify category: \"Bank/BAC\"")
                 }
 
                 Section("Value") {
