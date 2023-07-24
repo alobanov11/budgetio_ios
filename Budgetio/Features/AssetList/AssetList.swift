@@ -77,7 +77,7 @@ struct AssetList: ReducerProtocol {
                     else {
                         result.append(View.State.Section(name: category, items: [item]))
                     }
-                }.sorted { $0.name < $1.name }
+                }.filter { !$0.items.isEmpty }.sorted { $0.name < $1.name }
                 state.view.total = assets.map(\.value).reduce(0, +).formatted(.currency(code: "USD"))
                 state.assets = assets
                 return .none
