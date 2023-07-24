@@ -120,7 +120,7 @@ struct AssetListPreview: PreviewProvider {
                             AssetList.View.State.Section(name: "Assets", items: [
                                 AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00"),
                                 AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00"),
-                            ])
+                            ]),
                         ],
                         widget: AssetList.View.State.Widget(
                             data: [],
