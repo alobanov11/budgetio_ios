@@ -2,89 +2,19 @@ import Charts
 import ComposableArchitecture
 import SwiftUI
 
+typealias AssetListViewStore = ViewStore<AssetList.View.State, AssetList.View.Action>
+
 struct AssetListView: View {
     let store: StoreOf<AssetList>
 
     var body: some View {
-        WithViewStore(store.scope(state: \.view, action: { .view($0) })) {
-            (viewStore: ViewStore<AssetList.View.State, AssetList.View.Action>) in
+        WithViewStore(store.scope(state: \.view, action: { .view($0) })) { (viewStore: AssetListViewStore) in
             ZStack {
                 if viewStore.sections.isEmpty {
-                    VStack(spacing: 16) {
-                        Text("Add you first asset")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-
-                        Button("Create", action: { viewStore.send(.addButtonTapped) })
-                            .buttonBorderShape(.capsule)
-                            .buttonStyle(.borderedProminent)
-                            .foregroundColor(Color(uiColor: .systemBackground))
-                    }
+                    emptyView(viewStore)
                 }
                 else {
-                    List {
-                        if let widget = viewStore.widget {
-                            Section {
-                                Chart(widget.data) {
-                                    LineMark(
-                                        x: .value("Date", $0.date),
-                                        y: .value("Value", $0.value)
-                                    )
-                                }
-                                .chartLegend(position: .top, alignment: .bottomTrailing)
-                                .chartXAxis(.hidden)
-                                .frame(height: 128)
-                            }
-
-                            Section {
-                                HStack {
-                                    Text("Saved")
-
-                                    Spacer()
-
-                                    Text(widget.saved)
-                                        .foregroundColor(.green)
-                                }
-
-                                HStack {
-                                    Text("Lost")
-
-                                    Spacer()
-
-                                    Text(widget.lost)
-                                        .foregroundColor(.red)
-                                }
-                            }
-                        }
-                        ForEach(viewStore.sections, id: \.self) { section in
-                            Section {
-                                ForEach(section.items, id: \.self) { item in
-                                    HStack {
-                                        Text(item.title)
-                                            .font(.body)
-
-                                        Spacer()
-
-                                        Text(item.value)
-                                            .font(.body)
-                                    }
-                                    .onTapGesture {
-                                        viewStore.send(.itemTapped(item))
-                                    }
-                                }
-                            } header: {
-                                HStack {
-                                    Text(section.name)
-
-                                    Spacer()
-
-                                    if section.items.count > 1 {
-                                        Text(section.info)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    contentView(viewStore)
                 }
 
                 if let error = viewStore.error {
@@ -113,6 +43,86 @@ struct AssetListView: View {
             .navigationTitle(viewStore.total)
             .onAppear {
                 viewStore.send(.viewAppeared)
+            }
+        }
+    }
+
+    func emptyView(_ viewStore: AssetListViewStore) -> some View {
+        VStack(spacing: 16) {
+            Text("Add you first asset")
+                .font(.caption)
+                .foregroundColor(.gray)
+
+            Button("Create", action: { viewStore.send(.addButtonTapped) })
+                .buttonBorderShape(.capsule)
+                .buttonStyle(.borderedProminent)
+                .foregroundColor(Color(uiColor: .systemBackground))
+        }
+    }
+
+    func contentView(_ viewStore: AssetListViewStore) -> some View {
+        List {
+            if let widget = viewStore.widget {
+                Section {
+                    Chart(widget.data) {
+                        LineMark(
+                            x: .value("Date", $0.date),
+                            y: .value("Value", $0.value)
+                        )
+                    }
+                    .chartLegend(position: .top, alignment: .bottomTrailing)
+                    .chartXAxis(.hidden)
+                    .frame(height: 128)
+                }
+
+                Section {
+                    HStack {
+                        Text("Saved")
+
+                        Spacer()
+
+                        Text(widget.saved)
+                            .foregroundColor(.green)
+                    }
+
+                    HStack {
+                        Text("Lost")
+
+                        Spacer()
+
+                        Text(widget.lost)
+                            .foregroundColor(.red)
+                    }
+                }
+            }
+
+            ForEach(viewStore.sections, id: \.self) { section in
+                Section {
+                    ForEach(section.items, id: \.self) { item in
+                        HStack {
+                            Text(item.title)
+                                .font(.body)
+
+                            Spacer()
+
+                            Text(item.value)
+                                .font(.body)
+                        }
+                        .onTapGesture {
+                            viewStore.send(.itemTapped(item))
+                        }
+                    }
+                } header: {
+                    HStack {
+                        Text(section.name)
+
+                        Spacer()
+
+                        if section.items.count > 1 {
+                            Text(section.info)
+                        }
+                    }
+                }
             }
         }
     }
