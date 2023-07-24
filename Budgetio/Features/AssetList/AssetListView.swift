@@ -96,34 +96,46 @@ struct AssetListView: View {
                 }
             }
 
-            ForEach(viewStore.sections, id: \.self) { section in
-                Section {
-                    ForEach(section.items, id: \.self) { item in
-                        HStack {
-                            Text(item.title)
-                                .font(.body)
 
-                            Spacer()
+        }
+    }
 
-                            Text(item.value)
-                                .font(.body)
-                        }
-                        .onTapGesture {
-                            viewStore.send(.itemTapped(item))
-                        }
-                    }
-                } header: {
-                    HStack {
-                        Text(section.name)
-
-                        Spacer()
-
-                        if section.items.count > 1 {
-                            Text(section.info)
-                        }
-                    }
+    func sectionsView(_ viewStore: AssetListViewStore) -> some View {
+        ForEach(viewStore.sections, id: \.self) { section in
+            Section {
+                ForEach(section.items, id: \.self) { item in
+                    sectionRowView(item, viewStore: viewStore)
                 }
+            } header: {
+                sectionHeaderView(section, viewStore: viewStore)
             }
+        }
+    }
+
+    func sectionHeaderView(_ section: AssetList.View.State.Section, viewStore: AssetListViewStore) -> some View {
+        HStack {
+            Text(section.name)
+
+            Spacer()
+
+            if section.items.count > 1 {
+                Text(section.info)
+            }
+        }
+    }
+
+    func sectionRowView(_ item: AssetList.View.State.Item, viewStore: AssetListViewStore) -> some View {
+        HStack {
+            Text(item.title)
+                .font(.body)
+
+            Spacer()
+
+            Text(item.value)
+                .font(.body)
+        }
+        .onTapGesture {
+            viewStore.send(.itemTapped(item))
         }
     }
 }
