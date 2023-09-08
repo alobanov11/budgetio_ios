@@ -34,8 +34,19 @@ struct AssetListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if !viewStore.sections.isEmpty {
-                        Button(action: { viewStore.send(.addButtonTapped) }) {
-                            Image(systemName: "plus.circle.fill")
+                        Menu {
+                            Button(action: { viewStore.send(.addButtonTapped) }) {
+                                Label("Add asset", image: "plus.circle.fill")
+                            }
+                            Button(action: { viewStore.send(.proportionToggle) }) {
+                                Label(
+                                    "\(viewStore.isProportionEnabled ? "Disable" : "Enable") proportions",
+                                    image: "arrow.up.arrow.down"
+                                )
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                                .font(.system(size: 18))
                         }
                     }
                 }
@@ -69,32 +80,14 @@ struct AssetListView: View {
                             x: .value("Date", $0.date),
                             y: .value("Value", $0.value)
                         )
+                        .interpolationMethod(.catmullRom)
                     }
-                    .chartLegend(position: .top, alignment: .bottomTrailing)
-                    .chartXAxis(.hidden)
-                    .frame(height: 128)
-                }
-
-                Section {
-                    HStack {
-                        Text("Saved")
-
-                        Spacer()
-
-                        Text(widget.saved)
-                            .foregroundColor(.green)
-                    }
-
-                    HStack {
-                        Text("Lost")
-
-                        Spacer()
-
-                        Text(widget.lost)
-                            .foregroundColor(.red)
-                    }
+                    .chartYScale(domain: (widget.data.map { $0.value }.min() ?? 0) ... (widget.data.map { $0.value }.max() ?? 0))
+                    .frame(height: 200)
                 }
             }
+
+            sectionsView(viewStore)
         }
     }
 
@@ -110,14 +103,14 @@ struct AssetListView: View {
         }
     }
 
-    func sectionHeaderView(_ section: AssetList.View.State.Section, viewStore _: AssetListViewStore) -> some View {
+    func sectionHeaderView(_ section: AssetList.View.State.Section, viewStore: AssetListViewStore) -> some View {
         HStack {
             Text(section.name)
 
             Spacer()
 
             if section.items.count > 1 {
-                Text(section.info)
+                Text(viewStore.isProportionEnabled ? section.info + " (" + section.proportion + ")" : section.info)
             }
         }
     }
@@ -129,7 +122,7 @@ struct AssetListView: View {
 
             Spacer()
 
-            Text(item.value)
+            Text(viewStore.state.isProportionEnabled ? item.value + " (" + item.proportion + ")" : item.value)
                 .font(.body)
         }
         .onTapGesture {
@@ -147,15 +140,13 @@ struct AssetListPreview: PreviewProvider {
                         isLoading: false,
                         isItemsLoaded: true,
                         sections: [
-                            AssetList.View.State.Section(name: "Assets", info: "100$ / 10%", items: [
-                                AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00"),
-                                AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00"),
+                            AssetList.View.State.Section(name: "Assets", info: "100$", proportion: "10%", items: [
+                                AssetList.View.State.Item(id: nil, title: "Bank", value: "$100.00", proportion: "10%"),
+                                AssetList.View.State.Item(id: nil, title: "Bank #2", value: "$200.00", proportion: "20%"),
                             ]),
                         ],
                         widget: AssetList.View.State.Widget(
                             data: [],
-                            saved: "$5.00",
-                            lost: "$100.00",
                             period: .month
                         ),
                         total: "$100.00",
