@@ -153,7 +153,7 @@ struct AssetList: ReducerProtocol {
 }
 
 private extension AssetList {
-    func widget(with assets: [AssetEntity], for period: View.State.Period) -> View.State.Widget? {
+    func widget(with assets: [AssetEntity], for _: View.State.Period) -> View.State.Widget? {
         guard let firstDate = Set(assets.flatMap { $0.records }.map { $0.date }).min() else { return nil }
 
         let fromDate = self.calendar.startOfDay(for: firstDate)
