@@ -1,7 +1,6 @@
 import Foundation
 
 struct DependencyContainer {
-
     let persistanceClient: PersistanceClient
     let assetRepository: AssetRepository
     let localStorage: LocalStorage

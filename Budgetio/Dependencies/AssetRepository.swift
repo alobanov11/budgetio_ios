@@ -3,7 +3,6 @@ import CoreData
 import Foundation
 
 struct AssetRepository {
-    
     var onUpdate: () -> AnyPublisher<Void, Never>
     var fetch: () async throws -> [AssetEntity]
     var save: (AssetEntity) async throws -> AssetEntity
@@ -11,7 +10,6 @@ struct AssetRepository {
 }
 
 extension AssetRepository {
-    
     init(persistanceClient: PersistanceClient, calendar: Calendar) {
         let subject = PassthroughSubject<Void, Never>()
         let context = { persistanceClient.context() }

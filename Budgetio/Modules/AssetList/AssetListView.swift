@@ -3,7 +3,6 @@ import StoreSwift
 import SwiftUI
 
 struct AssetListView: View {
-
     @StateObject var store: Store<AssetListUseCase>
 
     var body: some View {
@@ -152,4 +151,3 @@ struct AssetListPreview: PreviewProvider {
         }
     }
 }
-

@@ -2,12 +2,10 @@ import CoreData
 import UIKit
 
 struct PersistanceClient {
-    
     var context: () -> NSManagedObjectContext
 }
 
 extension PersistanceClient {
-    
     init(inMemory: Bool = false, fileManager: FileManager = .default) {
         let container = NSPersistentContainer(name: "Budgetio")
         if inMemory {

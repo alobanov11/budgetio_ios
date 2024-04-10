@@ -3,9 +3,7 @@ import SwiftUI
 
 @MainActor
 struct RootFlow: View {
-
     enum Path: Hashable {
-
         case editAsset(AssetEntity?)
     }
 

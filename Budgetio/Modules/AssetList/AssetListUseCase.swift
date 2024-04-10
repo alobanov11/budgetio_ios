@@ -2,16 +2,12 @@ import Foundation
 import StoreSwift
 
 struct AssetListUseCase: UseCase {
-
     struct Props: Equatable {
-
         enum Period: Equatable {
-            
             case month
         }
 
         struct Section: Identifiable, Hashable {
-            
             var id: String { self.name }
             let name: String
             let info: String
@@ -20,7 +16,6 @@ struct AssetListUseCase: UseCase {
         }
 
         struct Item: Identifiable, Hashable {
-            
             let id: AssetID?
             let title: String
             let value: String
@@ -28,7 +23,6 @@ struct AssetListUseCase: UseCase {
         }
 
         struct Widget: Equatable {
-            
             struct Row: Equatable, Identifiable {
                 var id: Date { self.date }
                 let date: Date
@@ -49,7 +43,6 @@ struct AssetListUseCase: UseCase {
     }
 
     class Context {
-
         var assets: [AssetEntity] = []
     }
 
@@ -63,7 +56,6 @@ struct AssetListUseCase: UseCase {
 }
 
 extension Action where U == AssetListUseCase {
-
     static let viewAppeared = Self { props, useCase in
         await props {
             $0.isLoading = true
@@ -110,7 +102,7 @@ extension Action where U == AssetListUseCase {
     }
 
     static func itemTapped(_ item: U.Props.Item) -> Self {
-        return Self { props, useCase in
+        Self { _, useCase in
             guard let asset = useCase.context.assets.first(where: { $0.id == item.id }) else {
                 return
             }
@@ -138,7 +130,6 @@ extension Action where U == AssetListUseCase {
 }
 
 private extension AssetListUseCase.Props.Widget {
-
     init?(
         with assets: [AssetEntity],
         calendar: Calendar,

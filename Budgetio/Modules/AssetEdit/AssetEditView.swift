@@ -1,8 +1,7 @@
-import SwiftUI
 import StoreSwift
+import SwiftUI
 
 struct AssetEditView: View {
-    
     @StateObject var store: Store<AssetEditUseCase>
 
     var body: some View {

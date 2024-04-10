@@ -2,9 +2,7 @@ import Foundation
 import StoreSwift
 
 struct AssetEditUseCase: UseCase {
-
     struct Props: Equatable {
-
         var isLoading = false
         var title = ""
         var value = "0"
@@ -19,7 +17,6 @@ struct AssetEditUseCase: UseCase {
 }
 
 extension Action where U == AssetEditUseCase {
-
     static let viewAppeared = Self { props, useCase in
         guard let asset = useCase.asset else { return }
         await props {
