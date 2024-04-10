@@ -2,9 +2,12 @@ import SwiftUI
 
 @main
 struct BudgetioApp: App {
+
+    let container = DependencyContainer()
+
     var body: some Scene {
         WindowGroup {
-            RootFlow()
+            RootFlow(container: container)
         }
     }
 }

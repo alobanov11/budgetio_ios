@@ -1,27 +1,17 @@
 import Combine
-import ComposableArchitecture
 import CoreData
 import Foundation
 
 struct AssetRepository {
+    
     var onUpdate: () -> AnyPublisher<Void, Never>
     var fetch: () async throws -> [AssetEntity]
-    var save: (AssetEntity) throws -> AssetEntity
-    var delete: (AssetID) throws -> Void
+    var save: (AssetEntity) async throws -> AssetEntity
+    var delete: (AssetID) async throws -> Void
 }
 
-extension AssetRepository: DependencyKey {
-    static let liveValue = AssetRepository(persistanceClient: .liveValue, calendar: .current)
-}
-
-extension DependencyValues {
-    var assetRepository: AssetRepository {
-        get { self[AssetRepository.self] }
-        set { self[AssetRepository.self] = newValue }
-    }
-}
-
-private extension AssetRepository {
+extension AssetRepository {
+    
     init(persistanceClient: PersistanceClient, calendar: Calendar) {
         let subject = PassthroughSubject<Void, Never>()
         let context = { persistanceClient.context() }
@@ -84,17 +74,30 @@ private extension AssetRepository {
 
         self.save = { entity in
             if entity.id == nil {
-                return try create(entity)
+                let fetchRequest = Asset.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "title = %@ AND isArchived = %@", entity.title, NSNumber(value: true))
+                let results = try await context().perform {
+                    try context().fetch(fetchRequest)
+                }
+                guard let asset = results.first else {
+                    return try create(entity)
+                }
+                asset.isArchived = false
+                try context().save()
+                return AssetEntity(with: asset)
             }
             try update(entity)
             return entity
         }
 
         self.delete = { id in
-            let object = context().object(with: id)
-            context().delete(object)
-            try context().save()
-            subject.send(())
+            guard let asset = context().object(with: id) as? Asset else {
+                throw MessageError(message: "ID is wrong")
+            }
+            asset.isArchived = true
+            var entity = AssetEntity(with: asset)
+            entity.value = 0
+            try update(entity)
         }
     }
 }
@@ -106,5 +109,6 @@ private extension AssetEntity {
         self.value = asset.value
         self.records = asset.records?.compactMap { $0 as? Record }
             .map { .init(id: $0.objectID, date: $0.date ?? .now, value: $0.value, amount: $0.amount) } ?? []
+        self.isArchived = asset.isArchived
     }
 }

@@ -1,23 +1,13 @@
-import ComposableArchitecture
 import CoreData
-import Foundation
+import UIKit
 
 struct PersistanceClient {
+    
     var context: () -> NSManagedObjectContext
 }
 
-extension PersistanceClient: DependencyKey {
-    static let liveValue = PersistanceClient()
-}
-
-extension DependencyValues {
-    var persistanceClient: PersistanceClient {
-        get { self[PersistanceClient.self] }
-        set { self[PersistanceClient.self] = newValue }
-    }
-}
-
-private extension PersistanceClient {
+extension PersistanceClient {
+    
     init(inMemory: Bool = false, fileManager: FileManager = .default) {
         let container = NSPersistentContainer(name: "Budgetio")
         if inMemory {

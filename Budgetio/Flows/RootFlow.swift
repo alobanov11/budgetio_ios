@@ -1,104 +1,47 @@
-import ComposableArchitecture
+import StoreSwift
 import SwiftUI
 
+@MainActor
 struct RootFlow: View {
-    struct State: Equatable {
-        var path = StackState<Path.State>()
-        var assetList = AssetList.State()
+
+    enum Path: Hashable {
+
+        case editAsset(AssetEntity?)
     }
 
-    enum Action: Equatable {
-        case assetList(AssetList.Action)
-        case path(StackAction<Path.State, Path.Action>)
-    }
+    @State var path: [Path] = []
 
-    struct Path: ReducerProtocol {
-        enum State: Equatable {
-            case assetEdit(AssetEdit.State)
-        }
-
-        enum Action: Equatable {
-            case assetEdit(AssetEdit.Action)
-        }
-
-        var body: some ReducerProtocolOf<Self> {
-            Scope(state: /State.assetEdit, action: /Action.assetEdit) {
-                AssetEdit()
-            }
-        }
-    }
-
-    let store: Store<State, Action>
-
-    init() {
-        self.store = Store(
-            initialState: State(),
-            reducer: {
-                Scope(state: \.assetList, action: /Action.assetList) {
-                    AssetList()
-                }
-                Reduce<State, Action> { state, action in
-                    switch action {
-                    case let .assetList(.route(.editAsset(asset))):
-                        state.path.append(.assetEdit(AssetEdit.State(asset: asset)))
-                        return .none
-
-                    case .assetList(.route(.createAsset)):
-                        state.path.append(.assetEdit(AssetEdit.State(asset: nil)))
-                        return .none
-
-                    case .assetList:
-                        return .none
-
-                    case .path:
-                        return .none
-                    }
-                }.forEach(\.path, action: /Action.path) {
-                    Path()
-                }
-            }
-        )
-    }
+    let container: DependencyContainer
 
     var body: some View {
-        NavigationStackStore(
-            self.store.scope(state: \.path, action: Action.path)
-        ) {
-            AssetListView(store: store.scope(state: \.assetList, action: Action.assetList))
-        } destination: { state in
-            switch state {
-            case .assetEdit:
-                CaseLet(
-                    state: /Path.State.assetEdit,
-                    action: Path.Action.assetEdit,
-                    then: AssetEditView.init(store:)
-                )
-            }
+        NavigationStack(path: $path) {
+            assetListView
+                .navigationDestination(for: Path.self) { path in
+                    switch path {
+                    case let .editAsset(asset):
+                        editAssetView(asset)
+                    }
+                }
         }
     }
-}
 
-struct RootFlowPreview: PreviewProvider {
-    static var previews: some View {
-        withDependencies {
-            $0.assetRepository.fetch = {
-                [
-                    AssetEntity(
-                        id: AssetID(),
-                        title: "Asset #1",
-                        value: 20,
-                        records: []
-                    ),
-                    AssetEntity(
-                        id: AssetID(),
-                        title: "Asset #2",
-                        value: 40,
-                        records: []
-                    ),
-                ]
-            }
-        } operation: {
-            RootFlow()
-        }
+    var assetListView: some View {
+        AssetListView(store: Store(.init(), useCase: AssetListUseCase(
+            calendar: container.calendar,
+            isProportionEnabled: { container.localStorage.isProportionEnabled },
+            setIsProportionEnabled: { container.localStorage.isProportionEnabled = $0 },
+            fetchAssets: { try await container.assetRepository.fetch() },
+            onSelectAsset: { path = [.editAsset($0)] },
+            onCreateAsset: { path = [.editAsset(nil)] }
+        )))
+    }
+
+    func editAssetView(_ asset: AssetEntity?) -> some View {
+        AssetEditView(store: Store(.init(isNew: asset == nil), useCase: AssetEditUseCase(
+            asset: asset,
+            deleteAsset: { try await container.assetRepository.delete($0) },
+            saveAsset: { _ = try await container.assetRepository.save($0) },
+            onDismiss: { path = [] }
+        )))
     }
 }

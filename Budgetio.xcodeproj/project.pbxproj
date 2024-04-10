@@ -10,15 +10,17 @@
 		E21823FC293F81410070B4E7 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21823FB293F81410070B4E7 /* App.swift */; };
 		E2182400293F81430070B4E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21823FF293F81430070B4E7 /* Assets.xcassets */; };
 		E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2182406293F81430070B4E7 /* Budgetio.xcdatamodeld */; };
-		E27814C02A56E26600C052A2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = E27814BF2A56E26600C052A2 /* ComposableArchitecture */; };
 		E27814C32A56E27C00C052A2 /* PersistanceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C22A56E27C00C052A2 /* PersistanceClient.swift */; };
 		E27814C52A56E38400C052A2 /* AssetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C42A56E38400C052A2 /* AssetRepository.swift */; };
-		E27814C92A56E56D00C052A2 /* AssetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814C82A56E56D00C052A2 /* AssetList.swift */; };
 		E27814CB2A56E68700C052A2 /* AssetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814CA2A56E68700C052A2 /* AssetListView.swift */; };
 		E27814D02A581CE300C052A2 /* RootFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814CF2A581CE300C052A2 /* RootFlow.swift */; };
-		E27814D32A5821EC00C052A2 /* AssetEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D22A5821EC00C052A2 /* AssetEdit.swift */; };
 		E27814D52A58224300C052A2 /* AssetEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27814D42A58224300C052A2 /* AssetEditView.swift */; };
 		E2A2F2EC2A011E1500D40FF5 /* BudgetioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */; };
+		E2AC07452BC7008A0061A653 /* StoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2AC07442BC7008A0061A653 /* StoreSwift */; };
+		E2AC07472BC700B80061A653 /* AssetListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC07462BC700B80061A653 /* AssetListUseCase.swift */; };
+		E2AC074B2BC702A10061A653 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC074A2BC702A10061A653 /* LocalStorage.swift */; };
+		E2AC074D2BC709090061A653 /* AssetEditUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC074C2BC709090061A653 /* AssetEditUseCase.swift */; };
+		E2AC074F2BC70BD60061A653 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC074E2BC70BD60061A653 /* DependencyContainer.swift */; };
 		E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B8537129F199BA00B82801 /* RecordEntity.swift */; };
 		E2BAB99029744B9C0084C929 /* AssetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BAB98F29744B9C0084C929 /* AssetEntity.swift */; };
 		E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAA706294F69370081AEBB /* MessageError.swift */; };
@@ -44,10 +46,8 @@
 		E2182409293F81430070B4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E27814C22A56E27C00C052A2 /* PersistanceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceClient.swift; sourceTree = "<group>"; };
 		E27814C42A56E38400C052A2 /* AssetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRepository.swift; sourceTree = "<group>"; };
-		E27814C82A56E56D00C052A2 /* AssetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetList.swift; sourceTree = "<group>"; };
 		E27814CA2A56E68700C052A2 /* AssetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListView.swift; sourceTree = "<group>"; };
 		E27814CF2A581CE300C052A2 /* RootFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlow.swift; sourceTree = "<group>"; };
-		E27814D22A5821EC00C052A2 /* AssetEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEdit.swift; sourceTree = "<group>"; };
 		E27814D42A58224300C052A2 /* AssetEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEditView.swift; sourceTree = "<group>"; };
 		E2A2F2E92A011E1500D40FF5 /* BudgetioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2F2EB2A011E1500D40FF5 /* BudgetioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetioTests.swift; sourceTree = "<group>"; };
@@ -55,6 +55,10 @@
 		E2A2F3202A02D02700D40FF5 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		E2A2F3212A02D09900D40FF5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		E2ABC76129C7AC8A006FF48F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2AC07462BC700B80061A653 /* AssetListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListUseCase.swift; sourceTree = "<group>"; };
+		E2AC074A2BC702A10061A653 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		E2AC074C2BC709090061A653 /* AssetEditUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEditUseCase.swift; sourceTree = "<group>"; };
+		E2AC074E2BC70BD60061A653 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		E2B8537129F199BA00B82801 /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
 		E2BAB98F29744B9C0084C929 /* AssetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetEntity.swift; sourceTree = "<group>"; };
 		E2EAA706294F69370081AEBB /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
@@ -67,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27814C02A56E26600C052A2 /* ComposableArchitecture in Frameworks */,
+				E2AC07452BC7008A0061A653 /* StoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +115,7 @@
 				E27814C12A56E27000C052A2 /* Dependencies */,
 				E2BAB98E29744B8D0084C929 /* Entities */,
 				E27814CE2A581CD900C052A2 /* Flows */,
-				E27814C62A56E56000C052A2 /* Features */,
+				E27814C62A56E56000C052A2 /* Modules */,
 				E2EAA705294F692D0081AEBB /* Extensions */,
 				E2BAB97B2973506F0084C929 /* Resources */,
 			);
@@ -123,23 +127,25 @@
 			children = (
 				E27814C22A56E27C00C052A2 /* PersistanceClient.swift */,
 				E27814C42A56E38400C052A2 /* AssetRepository.swift */,
+				E2AC074A2BC702A10061A653 /* LocalStorage.swift */,
+				E2AC074E2BC70BD60061A653 /* DependencyContainer.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		E27814C62A56E56000C052A2 /* Features */ = {
+		E27814C62A56E56000C052A2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E27814D12A5821E200C052A2 /* AssetEdit */,
 				E27814C72A56E56600C052A2 /* AssetList */,
+				E27814D12A5821E200C052A2 /* AssetEdit */,
 			);
-			path = Features;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		E27814C72A56E56600C052A2 /* AssetList */ = {
 			isa = PBXGroup;
 			children = (
-				E27814C82A56E56D00C052A2 /* AssetList.swift */,
+				E2AC07462BC700B80061A653 /* AssetListUseCase.swift */,
 				E27814CA2A56E68700C052A2 /* AssetListView.swift */,
 			);
 			path = AssetList;
@@ -156,7 +162,7 @@
 		E27814D12A5821E200C052A2 /* AssetEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E27814D22A5821EC00C052A2 /* AssetEdit.swift */,
+				E2AC074C2BC709090061A653 /* AssetEditUseCase.swift */,
 				E27814D42A58224300C052A2 /* AssetEditView.swift */,
 			);
 			path = AssetEdit;
@@ -216,7 +222,7 @@
 			);
 			name = Budgetio;
 			packageProductDependencies = (
-				E27814BF2A56E26600C052A2 /* ComposableArchitecture */,
+				E2AC07442BC7008A0061A653 /* StoreSwift */,
 			);
 			productName = Budgetio;
 			productReference = E21823F8293F81410070B4E7 /* Budgetio.app */;
@@ -269,7 +275,7 @@
 			);
 			mainGroup = E21823EF293F81410070B4E7;
 			packageReferences = (
-				E27814BE2A56E26600C052A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */,
+				E2AC07432BC7008A0061A653 /* XCRemoteSwiftPackageReference "StoreSwift.git" */,
 			);
 			productRefGroup = E21823F9293F81410070B4E7 /* Products */;
 			projectDirPath = "";
@@ -305,16 +311,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27814CB2A56E68700C052A2 /* AssetListView.swift in Sources */,
-				E27814D32A5821EC00C052A2 /* AssetEdit.swift in Sources */,
 				E27814D02A581CE300C052A2 /* RootFlow.swift in Sources */,
 				E2182408293F81430070B4E7 /* Budgetio.xcdatamodeld in Sources */,
+				E2AC07472BC700B80061A653 /* AssetListUseCase.swift in Sources */,
 				E27814C52A56E38400C052A2 /* AssetRepository.swift in Sources */,
-				E27814C92A56E56D00C052A2 /* AssetList.swift in Sources */,
 				E27814C32A56E27C00C052A2 /* PersistanceClient.swift in Sources */,
+				E2AC074F2BC70BD60061A653 /* DependencyContainer.swift in Sources */,
 				E27814D52A58224300C052A2 /* AssetEditView.swift in Sources */,
 				E2BAB99029744B9C0084C929 /* AssetEntity.swift in Sources */,
 				E2EAA70D294F693D0081AEBB /* View+Hidden.swift in Sources */,
 				E2B8537229F199BA00B82801 /* RecordEntity.swift in Sources */,
+				E2AC074B2BC702A10061A653 /* LocalStorage.swift in Sources */,
+				E2AC074D2BC709090061A653 /* AssetEditUseCase.swift in Sources */,
 				E2EAA70B294F693D0081AEBB /* MessageError.swift in Sources */,
 				E2EAA70C294F693D0081AEBB /* View+ScenePhase.swift in Sources */,
 				E21823FC293F81410070B4E7 /* App.swift in Sources */,
@@ -463,7 +471,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
@@ -481,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -504,7 +512,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LUY4875ZZ2;
@@ -522,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.budgetio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -541,11 +549,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LUY4875ZZ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.BudgetioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -560,11 +568,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LUY4875ZZ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.alobanov11.BudgetioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -607,21 +615,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E27814BE2A56E26600C052A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */ = {
+		E2AC07432BC7008A0061A653 /* XCRemoteSwiftPackageReference "StoreSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			repositoryURL = "https://github.com/alobanov11/StoreSwift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.55.0;
+				kind = revision;
+				revision = 15918e2fa5010609f21b50992d1e8f0f4ef2f7ab;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E27814BF2A56E26600C052A2 /* ComposableArchitecture */ = {
+		E2AC07442BC7008A0061A653 /* StoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E27814BE2A56E26600C052A2 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */;
-			productName = ComposableArchitecture;
+			package = E2AC07432BC7008A0061A653 /* XCRemoteSwiftPackageReference "StoreSwift.git" */;
+			productName = StoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

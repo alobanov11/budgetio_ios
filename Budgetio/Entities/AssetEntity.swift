@@ -12,4 +12,5 @@ struct AssetEntity: Identifiable, Hashable {
     var title: String = ""
     var value: Double = 0
     var records: [RecordEntity] = []
+    var isArchived = false
 }
